@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Trip Holiday - Your Journey Begins Here</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="logo.jpg" alt="Trip Holiday Logo" class="logo">
+                <span class="logo-text">TRIP HOLIDAY</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Destination</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="luxury-holiday.html">Luxury</a></li>
+                            <li><a href="india-holiday.html">India</a></li>
+                            <li><a href="pilgrimage.html">Pilgrimage</a></li>
+                            <li><a href="international-holiday.html">International</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="visa.html">Visa</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Profile</a>
+                        <ul class="dropdown-menu">
+                            <li class="auth-nav-item" id="loginNavItem">
+                                <a href="login.html" class="btn-nav-login">Login</a>
+                            </li>
+                            <li class="auth-nav-item" id="registerNavItem">
+                                <a href="register.html" class="btn-nav-register">Sign Up</a>
+                            </li>
+                            <li class="auth-nav-item hidden" id="userNavItem">
+                                <a href="profile.html" class="btn-nav-profile">
+                                    <span id="navUserName">My Account</span>
+                                </a>
+                            </li>
+                            <li class="auth-nav-item hidden" id="logoutNavItem">
+                                <a href="#" onclick="userLogout(event)" class="btn-nav-logout">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section with Unsplash Background -->
+        <section class="hero" style="position: relative; overflow: hidden;">
+            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1920&h=1080&fit=crop" alt="Travel" class="hero-bg" style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+            <div class="hero-content">
+                <h1 class="fade-in gradient-text">Welcome to Trip Holiday</h1>
+                <p class="fade-in typing-text" data-text="Discover Your Perfect Journey - Where Dreams Meet Destinations">Discover Your Perfect Journey - Where Dreams Meet Destinations</p>
+                <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center;">
+                    <a href="packages.html" class="btn btn-primary pulse">Explore Packages</a>
+                    <a href="booking-without-flight.html" class="btn btn-secondary">Book Now</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Categories -->
+        <section class="container" style="margin-top: 4rem;">
+            <h2 class="section-title">Travel Categories</h2>
+            <div class="grid grid-4" style="margin-top: 3rem;">
+                <div class="card slide-in-left card-3d">
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🌟</div>
+                        <h3 style="color: var(--primary-orange); margin-bottom: 1rem;">Luxury Holidays</h3>
+                        <p style="color: var(--text-gray); margin-bottom: 1.5rem;">Experience the finest travel with premium accommodations and exclusive services</p>
+                        <a href="luxury-holiday.html" class="btn btn-primary">Explore Luxury</a>
+                    </div>
+                </div>
+                <div class="card slide-in-left card-3d" style="animation-delay: 0.1s;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🌍</div>
+                        <h3 style="color: var(--primary-orange); margin-bottom: 1rem;">International</h3>
+                        <p style="color: var(--text-gray); margin-bottom: 1.5rem;">Explore exotic destinations across the globe with curated international packages</p>
+                        <a href="international-holiday.html" class="btn btn-primary">Go International</a>
+                    </div>
+                </div>
+                <div class="card slide-in-left card-3d" style="animation-delay: 0.2s;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🇮🇳</div>
+                        <h3 style="color: var(--primary-orange); margin-bottom: 1rem;">Holiday in India</h3>
+                        <p style="color: var(--text-gray); margin-bottom: 1.5rem;">Discover the incredible diversity and beauty of India's tourist destinations</p>
+                        <a href="india-holiday.html" class="btn btn-primary">Explore India</a>
+                    </div>
+                </div>
+                <div class="card slide-in-left card-3d" style="animation-delay: 0.3s;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🕌</div>
+                        <h3 style="color: var(--primary-orange); margin-bottom: 1rem;">Pilgrimage</h3>
+                        <p style="color: var(--text-gray); margin-bottom: 1.5rem;">Sacred journeys to spiritual destinations with comfortable arrangements</p>
+                        <a href="pilgrimage.html" class="btn btn-primary">Spiritual Tours</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Package Types -->
+        <section class="container" style="margin-top: 4rem;">
+            <h2 class="section-title">Choose Your Package</h2>
+            <div class="grid grid-3" style="margin-top: 3rem;">
+                <div class="package-card fade-in zoom-in">
+                    <div style="position: relative; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop" alt="Premium Package" style="width: 100%; height: 200px; object-fit: cover;">
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white; width: 100%;">
+                            <div style="font-size: 4rem;">💎</div>
+                            <h3 style="font-size: 2rem; margin-top: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Premium</h3>
+                        </div>
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title">Premium Package</h3>
+                        <p style="color: var(--text-gray);">Best value for comfortable travel with quality services and amenities</p>
+                        <ul class="package-features">
+                            <li>Quality Hotels</li>
+                            <li>Comfortable Transportation</li>
+                            <li>Guided Tours</li>
+                            <li>Daily Breakfast</li>
+                        </ul>
+                        <div class="package-price counter" data-target="35000" style="margin-top: 1rem;">₹35,000</div>
+                        <a href="packages.html?type=premium" class="btn btn-primary" style="width: 100%; text-align: center; margin-top: 1rem;">View Packages</a>
+                    </div>
+                </div>
+
+                <div class="package-card fade-in zoom-in" style="animation-delay: 0.2s;">
+                    <div style="position: relative; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800&h=600&fit=crop" alt="Luxury Package" style="width: 100%; height: 200px; object-fit: cover;">
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white; width: 100%;">
+                            <div style="font-size: 4rem;">👑</div>
+                            <h3 style="font-size: 2rem; margin-top: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Luxury</h3>
+                        </div>
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title">Luxury Package</h3>
+                        <p style="color: var(--text-gray);">Premium experience with 5-star hotels and exclusive privileges</p>
+                        <ul class="package-features">
+                            <li>5-Star Hotels</li>
+                            <li>Private Transfers</li>
+                            <li>Personal Guide</li>
+                            <li>All Meals Included</li>
+                        </ul>
+                        <div class="package-price counter" data-target="150000" style="margin-top: 1rem;">₹1,50,000</div>
+                        <a href="packages.html?type=luxury" class="btn btn-primary glow" style="width: 100%; text-align: center; margin-top: 1rem;">View Packages</a>
+                    </div>
+                </div>
+
+                <div class="package-card fade-in zoom-in" style="animation-delay: 0.4s;">
+                    <div style="position: relative; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&h=600&fit=crop" alt="Basic Package" style="width: 100%; height: 200px; object-fit: cover;">
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white; width: 100%;">
+                            <div style="font-size: 4rem;">🎒</div>
+                            <h3 style="font-size: 2rem; margin-top: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Basic</h3>
+                        </div>
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title">Basic Package</h3>
+                        <p style="color: var(--text-gray);">Budget-friendly option for essential travel needs and experiences</p>
+                        <ul class="package-features">
+                            <li>Standard Hotels</li>
+                            <li>Shared Transportation</li>
+                            <li>Group Tours</li>
+                            <li>Breakfast Included</li>
+                        </ul>
+                        <div class="package-price counter" data-target="20000" style="margin-top: 1rem;">₹20,000</div>
+                        <a href="packages.html?type=basic" class="btn btn-primary" style="width: 100%; text-align: center; margin-top: 1rem;">View Packages</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Travel Types -->
+        <section class="container" style="margin-top: 4rem;">
+            <h2 class="section-title">Travel With Your Tribe</h2>
+            <div class="grid grid-4" style="margin-top: 3rem;">
+                <div class="card slide-in-right floating">
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">👨‍👩‍👧‍👦</div>
+                        <h3 style="color: var(--primary-orange);">Family</h3>
+                        <p style="color: var(--text-gray); margin-top: 0.5rem;">Perfect packages for family bonding and creating memories together</p>
+                        <a href="packages.html?travel=family" class="btn btn-secondary" style="margin-top: 1rem;">View</a>
+                    </div>
+                </div>
+                <div class="card slide-in-right floating" style="animation-delay: 0.1s;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">💑</div>
+                        <h3 style="color: var(--primary-orange);">Couple</h3>
+                        <p style="color: var(--text-gray); margin-top: 0.5rem;">Romantic getaways and honeymoon packages for couples</p>
+                        <a href="packages.html?travel=couple" class="btn btn-secondary" style="margin-top: 1rem;">View</a>
+                    </div>
+                </div>
+                <div class="card slide-in-right floating" style="animation-delay: 0.2s;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🧳</div>
+                        <h3 style="color: var(--primary-orange);">Solo Travel</h3>
+                        <p style="color: var(--text-gray); margin-top: 0.5rem;">Adventures designed for independent travelers seeking freedom</p>
+                        <a href="packages.html?travel=solo" class="btn btn-secondary" style="margin-top: 1rem;">View</a>
+                    </div>
+                </div>
+                <div class="card slide-in-right floating" style="animation-delay: 0.3s;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">👥</div>
+                        <h3 style="color: var(--primary-orange);">Buddy</h3>
+                        <p style="color: var(--text-gray); margin-top: 0.5rem;">Group tours and friend trips with shared experiences</p>
+                        <a href="packages.html?travel=buddy" class="btn btn-secondary" style="margin-top: 1rem;">View</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Features -->
+        <section class="container" style="margin-top: 4rem; margin-bottom: 4rem;">
+            <h2 class="section-title">Why Choose Trip Holiday?</h2>
+            <div class="grid grid-3" style="margin-top: 3rem;">
+                <div class="card card-3d">
+                    <div style="font-size: 2.5rem; color: var(--primary-orange); margin-bottom: 1rem;">🎫</div>
+                    <h3 style="margin-bottom: 0.5rem;">Best Prices</h3>
+                    <p style="color: var(--text-gray);">Competitive pricing with exclusive deals and discount coupons for our valued customers</p>
+                </div>
+                <div class="card card-3d">
+                    <div style="font-size: 2.5rem; color: var(--primary-orange); margin-bottom: 1rem;">🛡️</div>
+                    <h3 style="margin-bottom: 0.5rem;">Flexible Policies</h3>
+                    <p style="color: var(--text-gray);">Easy cancellation and date change policies to accommodate your needs</p>
+                </div>
+                <div class="card card-3d">
+                    <div style="font-size: 2.5rem; color: var(--primary-orange); margin-bottom: 1rem;">📞</div>
+                    <h3 style="margin-bottom: 0.5rem;">24/7 Support</h3>
+                    <p style="color: var(--text-gray);">Round-the-clock customer support to assist you throughout your journey</p>
+                </div>
+                <div class="card card-3d">
+                    <div style="font-size: 2.5rem; color: var(--primary-orange); margin-bottom: 1rem;">✈️</div>
+                    <h3 style="margin-bottom: 0.5rem;">Complete Packages</h3>
+                    <p style="color: var(--text-gray);">Options with or without flights, customized to your preferences</p>
+                </div>
+                <div class="card card-3d">
+                    <div style="font-size: 2.5rem; color: var(--primary-orange); margin-bottom: 1rem;">🎁</div>
+                    <h3 style="margin-bottom: 0.5rem;">Complimentary Perks</h3>
+                    <p style="color: var(--text-gray);">Exclusive complimentary services and special treats included in packages</p>
+                </div>
+                <div class="card card-3d">
+                    <div style="font-size: 2.5rem; color: var(--primary-orange); margin-bottom: 1rem;">🌐</div>
+                    <h3 style="margin-bottom: 0.5rem;">Visa Assistance</h3>
+                    <p style="color: var(--text-gray);">Complete visa support and documentation guidance for international travel</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Trip Holiday</h3>
+                <p>Your trusted travel partner for creating unforgettable memories. We specialize in customized holiday packages across India and international destinations.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="packages.html">All Packages</a></li>
+                    <li><a href="blog.html">Travel Blog</a></li>
+                    <li><a href="visa.html">Visa Services</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Policies</h3>
+                <ul>
+                    <li><a href="cancellation-policy.html">Cancellation Policy</a></li>
+                    <li><a href="date-change-policy.html">Date Change Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: Info@tripholiday.in</p>
+                <p>Phone: 7042252130</p>
+                <p>Address: IT Park, Industrial Area Phase 8B, Sector 74, Mohali - Punjab</p>
+                <p>PIN Code: 160055</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Trip Holiday. All rights reserved. | Designed with passion for travelers</p>
+        </div>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

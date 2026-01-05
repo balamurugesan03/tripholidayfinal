@@ -1,0 +1,2063 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Packages | Trip Holiday</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --primary-orange: #ff7f27;
+            --dark-orange: #e56a1a;
+            --light-orange: #ffa347;
+            --black: #1a1a1a;
+            --text-gray: #666;
+            --light-gray: #f0f0f0;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--black);
+            background: var(--white);
+        }
+
+
+    
+
+
+
+        /* Main Content Styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .packages-hero {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(255, 127, 39, 0.9));
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+
+        .packages-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                rgba(255, 127, 39, 0.8) 0%, 
+                rgba(255, 127, 39, 0.6) 25%, 
+                rgba(26, 26, 26, 0.8) 100%);
+            z-index: 1;
+        }
+
+        .packages-hero .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .packages-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInDown 1s ease;
+        }
+
+        .typing-text {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.5s both;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .zoom-in {
+            animation: zoomIn 0.6s ease;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Filter Section */
+        .filter-section {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .filter-section h2 {
+            color: var(--black);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid var(--light-gray);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-orange);
+            box-shadow: 0 0 0 3px rgba(255, 127, 39, 0.1);
+        }
+
+        /* Sort Buttons */
+        .sort-button {
+            padding: 0.8rem 2rem;
+            background: white;
+            border: 2px solid var(--primary-orange);
+            color: var(--primary-orange);
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sort-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 127, 39, 0.1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .sort-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .sort-button:hover, .sort-button.active {
+            background: var(--primary-orange);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 127, 39, 0.3);
+        }
+
+        .sort-button.active {
+            background: var(--primary-orange);
+            color: white;
+        }
+
+        /* Package Grid */
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        .package-item {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .package-item.visible {
+            opacity: 1;
+        }
+
+        .package-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(255, 127, 39, 0.3);
+        }
+
+        .package-img-container {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .package-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .package-item:hover .package-img {
+            transform: scale(1.1);
+        }
+
+        .package-body {
+            padding: 1.5rem;
+        }
+
+        .package-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            padding: 0.3rem 0.8rem;
+            background: linear-gradient(135deg, var(--primary-orange), var(--dark-orange));
+            color: white;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tag:nth-child(2) {
+            background: linear-gradient(135deg, #4a6fa5, #2c4d80);
+        }
+
+        .package-body h3 {
+            color: var(--black);
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .package-body p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .duration {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin: 0.8rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .price {
+            font-size: 1.8rem;
+            color: var(--primary-orange);
+            font-weight: bold;
+        }
+
+        .price::before {
+            content: '₹';
+            font-size: 1.2rem;
+            margin-right: 2px;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-orange), var(--dark-orange));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 127, 39, 0.3);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            animation: fadeIn 0.3s ease;
+            overflow-y: auto;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: white;
+            margin: 5% auto;
+            padding: 3rem;
+            border-radius: 25px;
+            max-width: 900px;
+            position: relative;
+            animation: slideDown 0.4s ease;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 1.5rem;
+            top: 1.5rem;
+            font-size: 2rem;
+            color: var(--text-gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .close-modal:hover {
+            color: var(--primary-orange);
+            transform: rotate(90deg);
+            background: rgba(255, 127, 39, 0.1);
+        }
+
+        .flight-options-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .flight-option-card {
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            border: 2px solid var(--light-gray);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flight-option-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 127, 39, 0.1), rgba(255, 127, 39, 0.05));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .flight-option-card:hover::before {
+            opacity: 1;
+        }
+
+        .flight-option-card:hover {
+            border-color: var(--primary-orange);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(255, 127, 39, 0.3);
+        }
+
+        .option-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .flight-option-card:hover .option-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .flight-option-card h3 {
+            color: var(--black);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .flight-option-card p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .option-features {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+
+        .option-features li {
+            padding: 0.5rem 0;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .option-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-orange);
+            font-weight: bold;
+        }
+
+        .flight-option-card .btn {
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(135deg, var(--black), #2c2c2c);
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-orange);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .footer-section p {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary-orange);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .package-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .flight-options-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+            
+            .packages-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .typing-text {
+                font-size: 1.2rem;
+            }
+            
+            .filter-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .package-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .sort-button {
+                display: block;
+                width: 100%;
+                margin: 0.5rem 0;
+            }
+            
+            .modal-content {
+                margin: 10% 1rem;
+                padding: 2rem 1.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .packages-hero {
+                padding: 4rem 1rem;
+            }
+            
+            .packages-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .typing-text {
+                font-size: 1rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .package-body {
+                padding: 1rem;
+            }
+            
+            .price {
+                font-size: 1.5rem;
+            }
+            
+            .btn {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--light-gray);
+            border-top: 5px solid var(--primary-orange);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Badge for Popular Packages */
+        .popular-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #ff6b6b, #ff4757);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 1;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        /* Price Counter Animation */
+        .counter {
+            display: inline-block;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-orange);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(255, 127, 39, 0.4);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 127, 39, 0.6);
+        }
+
+        /* Itinerary Modal Styles */
+        .itinerary-timeline {
+            margin-top: 2rem;
+            position: relative;
+        }
+
+        .day-card {
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary-orange);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .day-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(255, 127, 39, 0.2);
+        }
+
+        .day-card::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 1.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--primary-orange);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(255, 127, 39, 0.2);
+        }
+
+        .day-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .day-number {
+            background: linear-gradient(135deg, var(--primary-orange), var(--dark-orange));
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .day-title {
+            color: var(--black);
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .day-description {
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .day-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .highlight-tag {
+            background: linear-gradient(135deg, #fff5ec, #ffe8d6);
+            color: var(--dark-orange);
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .itinerary-header {
+            background: linear-gradient(135deg, var(--primary-orange), var(--dark-orange));
+            color: white;
+            padding: 2rem;
+            border-radius: 15px 15px 0 0;
+            margin: -3rem -3rem 2rem -3rem;
+        }
+
+        .itinerary-header h2 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .itinerary-header p {
+            margin: 0.5rem 0 0 0;
+            opacity: 0.9;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary-orange);
+            border: 2px solid var(--primary-orange);
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-orange);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .day-card::before {
+                display: none;
+            }
+
+            .day-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .itinerary-header {
+                margin: -2rem -1.5rem 2rem -1.5rem;
+                padding: 1.5rem;
+            }
+
+            .itinerary-header h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+     <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="logo.jpg" alt="Trip Holiday Logo" class="logo">
+                <span class="logo-text">TRIP HOLIDAY</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Destination</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="luxury-holiday.html">Luxury</a></li>
+                            <li><a href="india-holiday.html">India</a></li>
+                            <li><a href="pilgrimage.html">Pilgrimage</a></li>
+                            <li><a href="international-holiday.html">International</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="visa.html">Visa</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Profile</a>
+                        <ul class="dropdown-menu">
+                            <li class="auth-nav-item" id="loginNavItem">
+                                <a href="login.html" class="btn-nav-login">Login</a>
+                            </li>
+                            <li class="auth-nav-item" id="registerNavItem">
+                                <a href="register.html" class="btn-nav-register">Sign Up</a>
+                            </li>
+                            <li class="auth-nav-item hidden" id="userNavItem">
+                                <a href="profile.html" class="btn-nav-profile">
+                                    <span id="navUserName">My Account</span>
+                                </a>
+                            </li>
+                            <li class="auth-nav-item hidden" id="logoutNavItem">
+                                <a href="#" onclick="userLogout(event)" class="btn-nav-logout">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="packages-hero">
+            <div class="hero-content">
+                <h1 class="gradient-text">Explore Our Packages</h1>
+                <p class="typing-text">Find your perfect holiday destination</p>
+                <div style="margin-top: 2rem;">
+                    <button class="btn btn-primary" onclick="window.location.href='#packagesGrid'" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
+                        Browse Packages
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Filter Section -->
+            <section class="filter-section fade-in">
+                <h2>Find Your Perfect Trip</h2>
+                <div class="filter-grid">
+                    <div class="form-group">
+                        <label>Package Type</label>
+                        <select class="form-control" id="filterType">
+                            <option value="all">All Types</option>
+                            <option value="premium">Premium</option>
+                            <option value="luxury">Luxury</option>
+                            <option value="basic">Basic</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Destination</label>
+                        <select class="form-control" id="filterDestination">
+                            <option value="all">All Destinations</option>
+                            <option value="international">International</option>
+                            <option value="india">India</option>
+                            <option value="pilgrimage">Pilgrimage</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Travel Type</label>
+                        <select class="form-control" id="filterTravel">
+                            <option value="all">All</option>
+                            <option value="family">Family</option>
+                            <option value="couple">Couple</option>
+                            <option value="solo">Solo</option>
+                            <option value="buddy">Buddy</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Budget Range</label>
+                        <select class="form-control" id="filterBudget">
+                            <option value="all">All Budgets</option>
+                            <option value="low">Under ₹50,000</option>
+                            <option value="medium">₹50,000 - ₹1,50,000</option>
+                            <option value="high">Above ₹1,50,000</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <button class="btn btn-primary" onclick="resetFilters()" style="padding: 0.8rem 2rem;">
+                        Reset Filters
+                    </button>
+                </div>
+            </section>
+
+            <!-- Sort Section -->
+            <section style="margin-top: 2rem; text-align: center;" class="fade-in">
+                <h3 style="color: var(--black); margin-bottom: 1rem;">Sort By</h3>
+                <div>
+                    <button class="sort-button active" onclick="sortPackages('popular')">Popular</button>
+                    <button class="sort-button" onclick="sortPackages('low-price')">Low Price</button>
+                    <button class="sort-button" onclick="sortPackages('high-price')">High Price</button>
+                    <button class="sort-button" onclick="sortPackages('duration')">Duration</button>
+                </div>
+            </section>
+
+            <!-- Loading Spinner -->
+            <div class="loading-spinner" id="loadingSpinner">
+                <div class="spinner"></div>
+                <p style="margin-top: 1rem; color: var(--text-gray);">Loading packages...</p>
+            </div>
+
+            <!-- Packages Grid -->
+            <section style="margin-top: 3rem; margin-bottom: 4rem;">
+                <div class="package-grid" id="packagesGrid">
+                    <!-- Packages will be dynamically loaded from API -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Flight Option Modal -->
+    <div id="flightOptionModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 style="color: var(--primary-orange); text-align: center; margin-bottom: 1rem;">Choose Your Package</h2>
+            <p style="text-align: center; color: var(--text-gray); margin-bottom: 2rem;" id="modalPackageName">Select the package type that suits your travel needs</p>
+
+            <div class="flight-options-grid">
+                <div class="flight-option-card" onclick="selectFlightOption('with')">
+                    <div class="option-icon">✈️</div>
+                    <h3>With Flight</h3>
+                    <p>Complete package including round-trip flights</p>
+                    <ul class="option-features">
+                        <li>Flight tickets included</li>
+                        <li>Hotel accommodation</li>
+                        <li>Airport transfers</li>
+                        <li>All taxes included</li>
+                        <li>Travel insurance</li>
+                    </ul>
+                    <button class="btn btn-primary">Select Package</button>
+                </div>
+
+                <div class="flight-option-card" onclick="selectFlightOption('without')">
+                    <div class="option-icon">🏨</div>
+                    <h3>Without Flight</h3>
+                    <p>Package without flight - perfect for local travelers</p>
+                    <ul class="option-features">
+                        <li>Hotel accommodation</li>
+                        <li>Ground transportation</li>
+                        <li>Sightseeing tours</li>
+                        <li>Flexible arrangements</li>
+                        <li>Meal plans included</li>
+                    </ul>
+                    <button class="btn btn-primary">Select Package</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Itinerary Modal -->
+    <div id="itineraryModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeItineraryModal()">&times;</span>
+            <div class="itinerary-header">
+                <h2 id="itineraryTitle">Package Itinerary</h2>
+                <p id="itinerarySubtitle">Detailed day-by-day breakdown of your journey</p>
+            </div>
+            <div class="itinerary-timeline" id="itineraryTimeline">
+                <!-- Dynamic itinerary content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        ↑
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Trip Holiday</h3>
+                <p>Your trusted travel partner for creating unforgettable memories.</p>
+                <p>We specialize in crafting personalized travel experiences that cater to all your needs.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="packages.html">All Packages</a></li>
+                    <li><a href="luxury-holiday.html">Luxury Holidays</a></li>
+                    <li><a href="international-holiday.html">International Tours</a></li>
+                    <li><a href="blog.html">Travel Blog</a></li>
+                    <li><a href="visa.html">Visa Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Policies</h3>
+                <ul>
+                    <li><a href="cancellation-policy.html">Cancellation Policy</a></li>
+                    <li><a href="date-change-policy.html">Date Change Policy</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="refund-policy.html">Refund Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>✉️ Email: Info@tripholiday.in</p>
+                <p>📞 Phone: 7042252130</p>
+                <p>📍 Address: IT Park, Industrial Area Phase 8B, Sector 74, Mohali - Punjab</p>
+                <p>📮 PIN Code: 160055</p>
+                <div style="margin-top: 1rem;">
+                    <p style="color: #ccc; font-size: 0.9rem;">Follow us:</p>
+                    <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
+                        <a href="#" style="color: var(--primary-orange);">FB</a>
+                        <a href="#" style="color: var(--primary-orange);">IG</a>
+                        <a href="#" style="color: var(--primary-orange);">TW</a>
+                        <a href="#" style="color: var(--primary-orange);">YT</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Trip Holiday. All rights reserved. | Designed with ❤️ for travelers</p>
+        </div>
+    </footer>
+
+    <script>
+        // API Configuration
+        const API_CONFIG = {
+            baseURL: '/api', // Change this to your actual API endpoint
+            endpoints: {
+                packages: '/packages',
+                itineraries: '/itineraries'
+            }
+        };
+
+        // Global state
+        let allPackages = [];
+        let itineraries = {};
+        let currentPackage = {
+            name: '',
+            price: 0
+        };
+
+        // DOM Ready
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Show loading state
+            showLoading();
+
+            try {
+                // Fetch packages from API
+                await fetchPackages();
+
+                // Render packages
+                renderPackages();
+
+                // Initialize animations
+                animatePackages();
+
+                // Initialize price counters
+                initPriceCounters();
+
+                // Initialize back to top button
+                initBackToTop();
+
+                // Hide loading state
+                hideLoading();
+            } catch (error) {
+                console.error('Error loading packages:', error);
+                showError('Failed to load packages. Please try again later.');
+            }
+        });
+
+        // Fetch packages from API
+        async function fetchPackages() {
+            try {
+                // For development: Use local data if API is not available
+                // In production: Replace this with actual API call
+                const response = await fetch(API_CONFIG.baseURL + API_CONFIG.endpoints.packages);
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch packages');
+                }
+
+                const data = await response.json();
+                allPackages = data.packages || [];
+                itineraries = data.itineraries || {};
+
+            } catch (error) {
+                // Fallback: Load from local data if API fails
+                console.warn('API not available, using fallback data');
+                loadFallbackData();
+            }
+        }
+
+        // Fallback data loader (for development/offline mode)
+        function loadFallbackData() {
+            // This function loads data from a local JavaScript object
+            // You can remove this once API is fully implemented
+            allPackages = getFallbackPackages();
+            itineraries = getFallbackItineraries();
+        }
+
+        // Render packages dynamically
+        function renderPackages(packagesToRender = null) {
+            const grid = document.getElementById('packagesGrid');
+            const packages = packagesToRender || allPackages;
+
+            grid.innerHTML = '';
+
+            if (packages.length === 0) {
+                showNoResults();
+                return;
+            }
+
+            packages.forEach((pkg, index) => {
+                const packageCard = createPackageCard(pkg, index);
+                grid.appendChild(packageCard);
+            });
+
+            // Reinitialize animations and counters
+            setTimeout(() => {
+                animatePackages();
+                initPriceCounters();
+            }, 100);
+        }
+
+        // Create package card element
+        function createPackageCard(pkg, index) {
+            const div = document.createElement('div');
+            div.className = 'package-item fade-in zoom-in';
+            div.style.animationDelay = `${index * 0.1}s`;
+
+            // Set data attributes
+            div.dataset.type = pkg.type;
+            div.dataset.destination = pkg.destination;
+            div.dataset.travel = pkg.travel;
+            div.dataset.price = pkg.price;
+            div.dataset.duration = pkg.duration;
+            div.dataset.popular = pkg.popular || false;
+
+            // Build HTML
+            let html = '';
+
+            // Popular badge
+            if (pkg.popular) {
+                html += `<div class="popular-badge">${pkg.popularBadge || 'Most Popular'}</div>`;
+            }
+
+            // Image
+            html += `
+                <div class="package-img-container">
+                    <img src="${pkg.image}" alt="${pkg.title}" class="package-img">
+                </div>
+            `;
+
+            // Package body
+            html += `<div class="package-body">`;
+
+            // Tags
+            html += `<div class="package-tags">`;
+            pkg.tags.forEach(tag => {
+                html += `<span class="tag">${tag}</span>`;
+            });
+            html += `</div>`;
+
+            // Title and description
+            html += `
+                <h3>${pkg.title}</h3>
+                <p>${pkg.description}</p>
+                <div class="duration">⏱️ ${pkg.durationText || pkg.duration + ' Days / ' + (pkg.duration - 1) + ' Nights'}</div>
+            `;
+
+            // Itinerary button
+            if (pkg.id) {
+                html += `
+                    <div style="margin-top: 1rem;">
+                        <button onclick="openItineraryModal('${pkg.id}')" class="btn-secondary" style="width: 100%; margin-bottom: 0.8rem;">📅 View Itinerary</button>
+                    </div>
+                `;
+            }
+
+            // Price row
+            html += `
+                <div class="price-row">
+                    <div class="price counter" data-target="${pkg.price}">₹${pkg.price.toLocaleString('en-IN')}</div>
+                    <button onclick="openFlightModal('${pkg.title}', ${pkg.price})" class="btn btn-primary">Book Now</button>
+                </div>
+            `;
+
+            html += `</div>`; // Close package-body
+
+            div.innerHTML = html;
+            return div;
+        }
+
+        // Show loading state
+        function showLoading() {
+            const grid = document.getElementById('packagesGrid');
+            grid.innerHTML = `
+                <div style="grid-column: 1/-1; text-align: center; padding: 3rem;">
+                    <div class="loading-spinner" style="display: inline-block; width: 50px; height: 50px; border: 5px solid var(--light-gray); border-top-color: var(--primary-orange); border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                    <p style="margin-top: 1rem; color: var(--text-gray);">Loading packages...</p>
+                </div>
+            `;
+        }
+
+        // Hide loading state
+        function hideLoading() {
+            // Loading will be replaced by rendered packages
+        }
+
+        // Show error message
+        function showError(message) {
+            const grid = document.getElementById('packagesGrid');
+            grid.innerHTML = `
+                <div style="grid-column: 1/-1; text-align: center; padding: 3rem;">
+                    <h3 style="color: #e74c3c;">⚠️ Error</h3>
+                    <p style="color: var(--text-gray); margin: 1rem 0;">${message}</p>
+                    <button onclick="location.reload()" class="btn btn-primary">Retry</button>
+                </div>
+            `;
+        }
+
+        // Show no results message
+        function showNoResults() {
+            const grid = document.getElementById('packagesGrid');
+            grid.innerHTML = `
+                <div style="grid-column: 1/-1; text-align: center; padding: 3rem;">
+                    <h3 style="color: var(--text-gray);">No packages found</h3>
+                    <p style="color: var(--text-gray); margin: 1rem 0;">Try adjusting your filters to find more options</p>
+                    <button onclick="resetFilters()" class="btn btn-primary">Reset All Filters</button>
+                </div>
+            `;
+        }
+
+        // Animate packages on scroll
+        function animatePackages() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.package-item').forEach(item => {
+                observer.observe(item);
+            });
+        }
+
+        // Initialize price counters with animation
+        function initPriceCounters() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const start = 0;
+                const duration = 2000;
+                let startTime = null;
+
+                function animate(currentTime) {
+                    if (!startTime) startTime = currentTime;
+                    const progress = Math.min((currentTime - startTime) / duration, 1);
+                    
+                    // Easing function for smooth animation
+                    const easeOut = 1 - Math.pow(1 - progress, 3);
+                    const currentValue = Math.floor(start + (target - start) * easeOut);
+                    
+                    counter.textContent = '₹' + currentValue.toLocaleString('en-IN');
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(animate);
+                    }
+                }
+
+                // Start animation when element comes into view
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            requestAnimationFrame(animate);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                });
+
+                observer.observe(counter);
+            });
+        }
+
+        // Sort functionality - Updated for dynamic data
+        function sortPackages(sortBy) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.sort-button').forEach(btn => btn.classList.remove('active'));
+
+            // Add active class to clicked button
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+
+            // Get current filtered packages
+            const filteredPackages = getFilteredPackages();
+
+            // Sort packages
+            const sortedPackages = [...filteredPackages].sort((a, b) => {
+                const aPrice = parseInt(a.price);
+                const bPrice = parseInt(b.price);
+                const aDuration = parseInt(a.duration);
+                const bDuration = parseInt(b.duration);
+                const aPopular = a.popular === true;
+                const bPopular = b.popular === true;
+
+                switch(sortBy) {
+                    case 'low-price':
+                        return aPrice - bPrice;
+                    case 'high-price':
+                        return bPrice - aPrice;
+                    case 'duration':
+                        return aDuration - bDuration;
+                    case 'popular':
+                    default:
+                        // Popular packages first, then sort by price
+                        if (aPopular && !bPopular) return -1;
+                        if (!aPopular && bPopular) return 1;
+                        return bPrice - aPrice; // Higher price first for popular
+                }
+            });
+
+            // Render sorted packages
+            renderPackages(sortedPackages);
+        }
+
+        // Filter functionality - Updated for dynamic data
+        document.querySelectorAll('#filterType, #filterDestination, #filterTravel, #filterBudget').forEach(filter => {
+            filter.addEventListener('change', filterPackages);
+        });
+
+        function getFilteredPackages() {
+            const type = document.getElementById('filterType').value;
+            const destination = document.getElementById('filterDestination').value;
+            const travel = document.getElementById('filterTravel').value;
+            const budget = document.getElementById('filterBudget').value;
+
+            return allPackages.filter(pkg => {
+                // Filter by type
+                if (type !== 'all' && pkg.type !== type) {
+                    return false;
+                }
+
+                // Filter by destination
+                if (destination !== 'all' && pkg.destination !== destination) {
+                    return false;
+                }
+
+                // Filter by travel type
+                if (travel !== 'all' && pkg.travel !== travel) {
+                    return false;
+                }
+
+                // Filter by budget
+                if (budget !== 'all') {
+                    const price = parseInt(pkg.price);
+                    if (budget === 'low' && price >= 50000) return false;
+                    if (budget === 'medium' && (price < 50000 || price > 150000)) return false;
+                    if (budget === 'high' && price <= 150000) return false;
+                }
+
+                return true;
+            });
+        }
+
+        function filterPackages() {
+            const filteredPackages = getFilteredPackages();
+            renderPackages(filteredPackages);
+        }
+
+        function resetFilters() {
+            document.getElementById('filterType').value = 'all';
+            document.getElementById('filterDestination').value = 'all';
+            document.getElementById('filterTravel').value = 'all';
+            document.getElementById('filterBudget').value = 'all';
+            
+            // Reset sort button
+            document.querySelectorAll('.sort-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelector('.sort-button').classList.add('active');
+            
+            filterPackages();
+        }
+
+        // Flight Option Modal functionality
+        const modal = document.getElementById('flightOptionModal');
+        const closeBtn = document.querySelector('.close-modal');
+
+        // Function to open modal with package info
+        function openFlightModal(packageName, packagePrice) {
+            currentPackage.name = packageName;
+            currentPackage.price = packagePrice;
+            
+            // Update modal with package info
+            const modalPackageName = document.getElementById('modalPackageName');
+            modalPackageName.innerHTML = `Select your preferred option for: <strong>${packageName}</strong>`;
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Function to close modal
+        function closeFlightModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Function to handle flight option selection
+        function selectFlightOption(option) {
+            // Show loading state
+            const buttons = document.querySelectorAll('.flight-option-card .btn');
+            buttons.forEach(btn => {
+                btn.innerHTML = 'Processing...';
+                btn.disabled = true;
+            });
+
+            // Simulate API call delay
+            setTimeout(() => {
+                if (option === 'with') {
+                    window.location.href = `booking-with-flight.html?package=${encodeURIComponent(currentPackage.name)}&price=${currentPackage.price}`;
+                } else {
+                    window.location.href = `booking-without-flight.html?package=${encodeURIComponent(currentPackage.name)}&price=${currentPackage.price}`;
+                }
+            }, 1000);
+        }
+
+        // Close modal when clicking the X button
+        closeBtn.onclick = closeFlightModal;
+
+        // Close modal when clicking outside the modal content
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                closeFlightModal();
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && modal.style.display === 'block') {
+                closeFlightModal();
+            }
+        });
+
+        // Back to Top functionality
+        function initBackToTop() {
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Image error handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.addEventListener('error', function() {
+                    this.src = 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop&auto=format';
+                    this.alt = 'Travel destination image';
+                });
+            });
+        });
+
+        // Search functionality - Updated for dynamic data
+        function searchPackages(searchTerm = '') {
+            if (!searchTerm && document.getElementById('searchInput')) {
+                searchTerm = document.getElementById('searchInput').value;
+            }
+
+            searchTerm = searchTerm.toLowerCase();
+
+            if (!searchTerm) {
+                renderPackages();
+                return;
+            }
+
+            const searchResults = allPackages.filter(pkg => {
+                const title = pkg.title.toLowerCase();
+                const description = pkg.description.toLowerCase();
+                return title.includes(searchTerm) || description.includes(searchTerm);
+            });
+
+            renderPackages(searchResults);
+        }
+
+        // FALLBACK DATA FUNCTIONS
+        // These functions provide sample data when API is not available
+        // Remove these in production when API is fully implemented
+
+        function getFallbackPackages() {
+            return [
+                {
+                    id: 'dubai',
+                    title: 'Dubai Luxury Escape',
+                    description: 'Experience the luxury of Dubai with 5-star hotels, desert safari, and Burj Khalifa',
+                    image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&h=600&fit=crop&auto=format',
+                    price: 150000,
+                    duration: 7,
+                    durationText: '7 Days / 6 Nights',
+                    type: 'luxury',
+                    destination: 'international',
+                    travel: 'family',
+                    popular: true,
+                    popularBadge: 'Most Popular',
+                    tags: ['Luxury', 'International']
+                },
+                {
+                    id: 'goa',
+                    title: 'Goa Beach Paradise',
+                    description: 'Relax on pristine beaches, enjoy water sports, and explore Portuguese heritage',
+                    image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&h=600&fit=crop&auto=format',
+                    price: 37000,
+                    duration: 5,
+                    durationText: '5 Days / 4 Nights',
+                    type: 'premium',
+                    destination: 'india',
+                    travel: 'couple',
+                    popular: false,
+                    tags: ['Premium', 'India']
+                },
+                {
+                    id: 'maldives',
+                    title: 'Maldives Honeymoon Special',
+                    description: 'Overwater villas, pristine beaches, and romantic dinners under the stars',
+                    image: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&h=600&fit=crop&auto=format',
+                    price: 205000,
+                    duration: 6,
+                    durationText: '6 Days / 5 Nights',
+                    type: 'luxury',
+                    destination: 'international',
+                    travel: 'couple',
+                    popular: true,
+                    popularBadge: 'Honeymoon Special',
+                    tags: ['Luxury', 'International']
+                },
+                {
+                    id: 'varanasi',
+                    title: 'Varanasi Spiritual Journey',
+                    description: 'Experience spiritual awakening with Ganga Aarti, ancient temples, and holy rituals',
+                    image: 'https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=800&h=600&fit=crop&auto=format',
+                    price: 22000,
+                    duration: 4,
+                    durationText: '4 Days / 3 Nights',
+                    type: 'budget',
+                    destination: 'india',
+                    travel: 'solo',
+                    popular: false,
+                    tags: ['Budget', 'India']
+                },
+                {
+                    id: 'kashmir',
+                    title: 'Kashmir - Paradise on Earth',
+                    description: 'Dal Lake houseboats, Gulmarg snow activities, and stunning mountain landscapes',
+                    image: 'https://images.unsplash.com/photo-1567157440776-a72d66db0814?w=800&h=600&fit=crop&auto=format',
+                    price: 58000,
+                    duration: 7,
+                    durationText: '7 Days / 6 Nights',
+                    type: 'premium',
+                    destination: 'india',
+                    travel: 'family',
+                    popular: true,
+                    popularBadge: 'Trending',
+                    tags: ['Premium', 'India']
+                },
+                {
+                    id: 'thailand',
+                    title: 'Thailand Adventure Tour',
+                    description: 'Bangkok temples, Pattaya beaches, and Phuket island hopping experience',
+                    image: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=800&h=600&fit=crop&auto=format',
+                    price: 95000,
+                    duration: 6,
+                    durationText: '6 Days / 5 Nights',
+                    type: 'premium',
+                    destination: 'international',
+                    travel: 'family',
+                    popular: false,
+                    tags: ['Premium', 'International']
+                },
+                {
+                    id: 'rajasthan',
+                    title: 'Royal Rajasthan Experience',
+                    description: 'Explore majestic forts, palaces, and desert landscapes of royal Rajasthan',
+                    image: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&h=600&fit=crop&auto=format',
+                    price: 68000,
+                    duration: 8,
+                    durationText: '8 Days / 7 Nights',
+                    type: 'premium',
+                    destination: 'india',
+                    travel: 'family',
+                    popular: false,
+                    tags: ['Premium', 'India']
+                },
+                {
+                    id: 'singapore',
+                    title: 'Singapore Family Delight',
+                    description: 'Universal Studios, Gardens by the Bay, and Sentosa Island adventures',
+                    image: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=800&h=600&fit=crop&auto=format',
+                    price: 120000,
+                    duration: 5,
+                    durationText: '5 Days / 4 Nights',
+                    type: 'luxury',
+                    destination: 'international',
+                    travel: 'family',
+                    popular: false,
+                    tags: ['Luxury', 'International']
+                },
+                {
+                    id: 'chardham',
+                    title: 'Char Dham Yatra',
+                    description: 'Sacred pilgrimage to Yamunotri, Gangotri, Kedarnath, and Badrinath temples',
+                    image: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800&h=600&fit=crop&auto=format',
+                    price: 48000,
+                    duration: 10,
+                    durationText: '10 Days / 9 Nights',
+                    type: 'budget',
+                    destination: 'india',
+                    travel: 'group',
+                    popular: false,
+                    tags: ['Budget', 'India']
+                },
+                {
+                    id: 'bali',
+                    title: 'Bali Island Retreat',
+                    description: 'Tropical paradise with rice terraces, temples, beaches, and cultural experiences',
+                    image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&h=600&fit=crop&auto=format',
+                    price: 115000,
+                    duration: 7,
+                    durationText: '7 Days / 6 Nights',
+                    type: 'luxury',
+                    destination: 'international',
+                    travel: 'couple',
+                    popular: true,
+                    popularBadge: 'Romantic Escape',
+                    tags: ['Luxury', 'International']
+                },
+                {
+                    id: 'kerala',
+                    title: 'Kerala Backwaters & Hills',
+                    description: 'Houseboat cruises, tea plantations, and Ayurvedic wellness experiences',
+                    image: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=800&h=600&fit=crop&auto=format',
+                    price: 42000,
+                    duration: 6,
+                    durationText: '6 Days / 5 Nights',
+                    type: 'premium',
+                    destination: 'india',
+                    travel: 'couple',
+                    popular: false,
+                    tags: ['Premium', 'India']
+                },
+                {
+                    id: 'europe',
+                    title: 'Grand Europe Tour',
+                    description: 'Discover Paris, Switzerland, Venice, Florence, Rome, and Vienna in one grand tour',
+                    image: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&h=600&fit=crop&auto=format',
+                    price: 395000,
+                    duration: 12,
+                    durationText: '12 Days / 11 Nights',
+                    type: 'luxury',
+                    destination: 'international',
+                    travel: 'couple',
+                    popular: true,
+                    popularBadge: 'Premium',
+                    tags: ['Luxury', 'International']
+                }
+            ];
+        }
+
+        function getFallbackItineraries() {
+            return {
+            dubai: {
+                title: "Dubai Luxury Escape",
+                subtitle: "7 Days / 6 Nights",
+                days: [
+                    {day: 1, title: "Arrival in Dubai", description: "Arrive at Dubai International Airport. Meet and greet by our representative. Transfer to your 5-star hotel. Check-in and relax. Evening at leisure to explore nearby areas.", highlights: ["Airport Transfer", "Hotel Check-in", "Welcome Drink", "Leisure Time"]},
+                    {day: 2, title: "Dubai City Tour", description: "Morning city tour covering Burj Khalifa, Dubai Mall, and Dubai Fountain. Visit the historic Al Fahidi district and Dubai Museum. Afternoon cruise on traditional Dhow. Evening at Gold and Spice Souk.", highlights: ["Burj Khalifa", "Dubai Mall", "Dubai Museum", "Dhow Cruise", "Gold Souk"]},
+                    {day: 3, title: "Desert Safari Adventure", description: "Full day at leisure for shopping or relaxation. Late afternoon pickup for desert safari. Enjoy dune bashing, camel riding, and sandboarding. Traditional Arabian dinner with belly dance performance under the stars.", highlights: ["Dune Bashing", "Camel Riding", "BBQ Dinner", "Cultural Show", "Henna Painting"]},
+                    {day: 4, title: "Palm Jumeirah & Marina", description: "Visit the iconic Palm Jumeirah and Atlantis The Palm. Explore Dubai Marina and JBR Beach. Optional activities: Aquaventure Waterpark or Lost Chambers Aquarium. Evening at Dubai Marina Walk.", highlights: ["Palm Jumeirah", "Atlantis", "Marina Walk", "Beach Time"]},
+                    {day: 5, title: "Abu Dhabi Day Trip", description: "Day trip to Abu Dhabi, UAE's capital. Visit the magnificent Sheikh Zayed Grand Mosque. Explore Emirates Palace and Louvre Abu Dhabi. Drive along Corniche. Return to Dubai evening.", highlights: ["Grand Mosque", "Emirates Palace", "Louvre Museum", "Corniche Drive"]},
+                    {day: 6, title: "Shopping & Leisure", description: "Day at leisure for shopping at Mall of Emirates or Dubai Mall. Optional visit to Ski Dubai or Burj Khalifa At The Top. Explore DIFC art galleries. Farewell dinner at a premium restaurant.", highlights: ["Shopping", "Ski Dubai", "Burj Khalifa", "Farewell Dinner"]},
+                    {day: 7, title: "Departure", description: "After breakfast, check-out from hotel. Last-minute shopping or relaxation. Transfer to Dubai International Airport for your return flight with wonderful memories.", highlights: ["Check-out", "Airport Transfer", "Departure"]}
+                ]
+            },
+            goa: {
+                title: "Goa Beach Paradise",
+                subtitle: "5 Days / 4 Nights",
+                days: [
+                    {day: 1, title: "Arrival in Goa", description: "Arrive at Goa International Airport. Transfer to your beach resort in North or South Goa. Check-in and relax. Evening walk on the beach. Welcome dinner with Goan cuisine.", highlights: ["Airport Transfer", "Resort Check-in", "Beach Walk", "Goan Dinner"]},
+                    {day: 2, title: "North Goa Sightseeing", description: "Visit famous beaches: Calangute, Baga, and Anjuna. Explore Fort Aguada and Chapora Fort. Visit Saturday Night Market (if Saturday). Water sports activities. Evening at Anjuna Beach for sunset.", highlights: ["Beach Hopping", "Fort Aguada", "Water Sports", "Night Market"]},
+                    {day: 3, title: "South Goa Exploration", description: "Discover South Goa's serene beaches: Palolem, Colva, and Benaulim. Visit Cabo de Rama Fort. Explore Ancestral Goa museum. Evening dolphin spotting cruise. Sunset at Palolem Beach.", highlights: ["Palolem Beach", "Cabo Fort", "Dolphin Cruise", "Peaceful Beaches"]},
+                    {day: 4, title: "Old Goa Heritage Tour", description: "Visit UNESCO World Heritage Sites in Old Goa. Explore Basilica of Bom Jesus and Se Cathedral. Visit Reis Magos Fort. Spice plantation tour with traditional lunch. Evening river cruise on Mandovi.", highlights: ["UNESCO Sites", "Churches", "Spice Plantation", "River Cruise"]},
+                    {day: 5, title: "Departure", description: "Leisurely breakfast at resort. Last-minute beach time or shopping at flea markets. Check-out and transfer to airport. Depart with beautiful Goan memories.", highlights: ["Beach Time", "Shopping", "Check-out", "Departure"]}
+                ]
+            },
+            maldives: {
+                title: "Maldives Honeymoon Special",
+                subtitle: "6 Days / 5 Nights",
+                days: [
+                    {day: 1, title: "Arrival in Paradise", description: "Arrive at Male International Airport. Speedboat or seaplane transfer to your resort. Private check-in and welcome drinks. Relax in your overwater villa. Romantic dinner on the beach under the stars.", highlights: ["Seaplane Transfer", "Overwater Villa", "Private Beach", "Romantic Dinner"]},
+                    {day: 2, title: "Water Sports & Snorkeling", description: "Morning breakfast in villa. Snorkeling session in crystal-clear waters. Jet skiing and kayaking activities. Afternoon couple's spa treatment. Sunset dolphin watching cruise.", highlights: ["Snorkeling", "Water Sports", "Couples Spa", "Dolphin Cruise"]},
+                    {day: 3, title: "Island Hopping", description: "Full-day island hopping excursion. Visit local islands and experience Maldivian culture. Sandbank picnic lunch. Swimming and snorkeling at pristine lagoons. Return to resort for dinner.", highlights: ["Island Tour", "Sandbank Picnic", "Local Culture", "Lagoon Swimming"]},
+                    {day: 4, title: "Scuba Diving Adventure", description: "Scuba diving experience at famous dive sites. Explore vibrant coral reefs and marine life. Afternoon at leisure by the infinity pool. Private dining experience on your villa deck. Night fishing under moonlight.", highlights: ["Scuba Diving", "Coral Reefs", "Private Dining", "Night Fishing"]},
+                    {day: 5, title: "Relaxation & Spa", description: "Day at leisure to enjoy resort facilities. Full body massage and spa treatments. Yoga session at sunrise. Photography session around the island. Farewell dinner with champagne and live music.", highlights: ["Spa Day", "Yoga", "Photography", "Champagne Dinner"]},
+                    {day: 6, title: "Departure", description: "Leisurely breakfast with ocean views. Last swim in the lagoon. Check-out and transfer to Male airport. Depart with unforgettable honeymoon memories.", highlights: ["Final Swim", "Check-out", "Transfer", "Departure"]}
+                ]
+            },
+            varanasi: {
+                title: "Varanasi Spiritual Journey",
+                subtitle: "4 Days / 3 Nights",
+                days: [
+                    {day: 1, title: "Arrival in Varanasi", description: "Arrive at Varanasi airport/station. Transfer to hotel near the ghats. Visit Kashi Vishwanath Temple. Explore the narrow lanes of old city. Evening Ganga Aarti ceremony at Dashashwamedh Ghat. Witness the spectacular ritual of lights and prayers.", highlights: ["Kashi Vishwanath", "Old City Walk", "Ganga Aarti", "Evening Prayers"]},
+                    {day: 2, title: "Sunrise Boat Ride", description: "Early morning boat ride on the Ganges to watch sunrise. Witness pilgrims performing rituals. Visit Assi Ghat, Manikarnika Ghat. Afternoon visit to Sarnath - where Buddha gave his first sermon. Evening free for temple visits or shopping.", highlights: ["Sunrise Boat Ride", "Sacred Ghats", "Sarnath", "Buddhist Sites"]},
+                    {day: 3, title: "Temple & Cultural Tour", description: "Visit Tulsi Manas Temple and Durga Temple. Explore Bharat Mata Temple with map of India. Afternoon silk weaving workshop visit. Evening classical music and dance performance. Late night aarti at different ghat.", highlights: ["Temple Circuit", "Silk Weaving", "Cultural Show", "Evening Aarti"]},
+                    {day: 4, title: "Departure", description: "Morning visit to local flower market. Last visit to favorite ghat for prayers. Shopping for Banarasi silk and handicrafts. Transfer to airport/station for departure with spiritual blessings.", highlights: ["Flower Market", "Final Prayers", "Shopping", "Departure"]}
+                ]
+            },
+            kashmir: {
+                title: "Kashmir - Paradise on Earth",
+                subtitle: "7 Days / 6 Nights",
+                days: [
+                    {day: 1, title: "Arrival in Srinagar", description: "Arrive at Srinagar airport. Transfer to houseboat on Dal Lake. Shikara ride on Dal Lake. Visit floating vegetable market. Explore Mughal Gardens: Nishat and Shalimar. Overnight stay in traditional houseboat.", highlights: ["Houseboat Stay", "Shikara Ride", "Dal Lake", "Mughal Gardens"]},
+                    {day: 2, title: "Gulmarg Day Trip", description: "Drive to Gulmarg (50km, 2 hours). Gondola ride to Khilanmarg and Apharwat Peak. Enjoy snow activities (seasonal). Trek or pony ride through meadows. Evening return to Srinagar. Overnight at hotel.", highlights: ["Gondola Ride", "Apharwat Peak", "Snow Activities", "Mountain Views"]},
+                    {day: 3, title: "Pahalgam Excursion", description: "Drive to Pahalgam via Saffron fields. Visit Awantipora ruins. Explore Betaab Valley and Aru Valley. Horse riding to Baisaran meadows. Lidder River views. Return to Srinagar evening.", highlights: ["Betaab Valley", "Aru Valley", "Horse Riding", "Saffron Fields"]},
+                    {day: 4, title: "Sonamarg Adventure", description: "Full-day trip to Sonamarg (Meadow of Gold). Visit Thajiwas Glacier. Pony ride to glacier. White water rafting in Sindh River (optional). Picnic lunch by the river. Return to Srinagar evening.", highlights: ["Thajiwas Glacier", "Pony Ride", "River Rafting", "Mountain Scenery"]},
+                    {day: 5, title: "Srinagar Local Sightseeing", description: "Visit Shankaracharya Temple on hilltop. Explore old city and Jamia Masjid. Shopping at Lal Chowk and local markets. Kashmiri handicrafts and carpets. Afternoon Shikara ride. Traditional Wazwan dinner.", highlights: ["Shankaracharya Temple", "Old City", "Shopping", "Wazwan Cuisine"]},
+                    {day: 6, title: "Doodhpathri Exploration", description: "Day trip to hidden gem Doodhpathri. Valley of milk - pristine meadows and streams. Picnic in alpine meadows. Photography and nature walks. Return to Srinagar. Farewell dinner with cultural show.", highlights: ["Doodhpathri", "Alpine Meadows", "Nature Walks", "Cultural Show"]},
+                    {day: 7, title: "Departure", description: "Morning at leisure for last-minute shopping. Visit handicraft emporiums. Purchase Pashmina shawls, saffron, and dry fruits. Transfer to Srinagar airport. Depart with memories of paradise.", highlights: ["Shopping", "Souvenirs", "Airport Transfer", "Departure"]}
+                ]
+            },
+            thailand: {
+                title: "Thailand Adventure Tour",
+                subtitle: "6 Days / 5 Nights",
+                days: [
+                    {day: 1, title: "Arrival in Bangkok", description: "Arrive at Suvarnabhumi International Airport. Transfer to hotel in central Bangkok. Check-in and relax. Evening visit to Asiatique The Riverfront. Dinner cruise on Chao Phraya River. Experience vibrant Bangkok nightlife.", highlights: ["Airport Transfer", "Hotel Check-in", "River Cruise", "Asiatique"]},
+                    {day: 2, title: "Bangkok City Tour", description: "Visit Grand Palace and Temple of Emerald Buddha. Explore Wat Pho and see the Reclining Buddha. Long-tail boat ride through canals. Visit Wat Arun (Temple of Dawn). Evening at Khao San Road. Thai massage experience.", highlights: ["Grand Palace", "Wat Pho", "Canal Tour", "Khao San Road"]},
+                    {day: 3, title: "Pattaya Transfer & Coral Island", description: "Drive to Pattaya (2.5 hours). Speedboat to Coral Island. Snorkeling and water sports. Parasailing and jet skiing. Beach lunch on the island. Return to Pattaya. Evening at Walking Street. Cabaret show.", highlights: ["Coral Island", "Water Sports", "Beach Activities", "Cabaret Show"]},
+                    {day: 4, title: "Phuket Paradise", description: "Flight to Phuket. Visit Big Buddha and Chalong Temple. Explore Phuket Old Town. Afternoon at Patong Beach. Shopping at Jungceylon Mall. Sunset at Promthep Cape. Seafood dinner at beach restaurant.", highlights: ["Big Buddha", "Patong Beach", "Old Town", "Sunset Views"]},
+                    {day: 5, title: "Phi Phi Islands", description: "Full-day speedboat tour to Phi Phi Islands. Visit Maya Bay and Pileh Lagoon. Snorkeling at Bamboo Island. Monkey Beach visit. Lunch on Phi Phi Don Island. Swimming and relaxation. Return to Phuket evening.", highlights: ["Maya Bay", "Phi Phi Islands", "Snorkeling", "Island Hopping"]},
+                    {day: 6, title: "Departure", description: "Morning at leisure for spa or shopping. Visit local markets for souvenirs. Thai silk and handicrafts shopping. Transfer to Phuket airport. Depart with amazing Thailand memories.", highlights: ["Spa Time", "Shopping", "Souvenirs", "Departure"]}
+                ]
+            },
+            rajasthan: {
+                title: "Royal Rajasthan Experience",
+                subtitle: "8 Days / 7 Nights",
+                days: [
+                    {day: 1, title: "Arrival in Jaipur", description: "Arrive at Jaipur airport. Transfer to heritage hotel. Welcome with traditional Rajasthani aarti. City palace and museum visit. Evening at Chokhi Dhani for cultural experience. Traditional Rajasthani dinner and folk performances.", highlights: ["Heritage Hotel", "City Palace", "Chokhi Dhani", "Folk Show"]},
+                    {day: 2, title: "Jaipur Sightseeing", description: "Visit magnificent Amber Fort with elephant ride. Photo stop at Jal Mahal. Explore Hawa Mahal and Jantar Mantar. Shopping at Johari Bazaar. Visit Albert Hall Museum. Evening light and sound show at Amber Fort.", highlights: ["Amber Fort", "Hawa Mahal", "Jantar Mantar", "Shopping"]},
+                    {day: 3, title: "Pushkar Excursion", description: "Drive to sacred town of Pushkar. Visit Brahma Temple (only one in world). Walk around holy Pushkar Lake. Explore colorful bazaars. Camel safari in sand dunes. Return to Jaipur evening. Rooftop dinner with city views.", highlights: ["Brahma Temple", "Pushkar Lake", "Camel Safari", "Holy City"]},
+                    {day: 4, title: "Jodhpur - Blue City", description: "Drive to Jodhpur (5-6 hours). Check-in at heritage hotel. Visit mighty Mehrangarh Fort. Explore Jaswant Thada marble cenotaph. Walk through blue city streets. Sunset from fort ramparts. Dinner at fort restaurant.", highlights: ["Mehrangarh Fort", "Jaswant Thada", "Blue City", "Fort Views"]},
+                    {day: 5, title: "Udaipur Transfer", description: "Scenic drive to Udaipur via Ranakpur. Visit stunning Jain Temples at Ranakpur. Continue to Udaipur city of lakes. Check-in at palace hotel. Evening boat ride on Lake Pichola. Sunset views of Lake Palace.", highlights: ["Ranakpur Temples", "Lake Pichola", "Boat Ride", "Palace Views"]},
+                    {day: 6, title: "Udaipur City of Lakes", description: "Visit majestic City Palace complex. Explore Saheliyon ki Bari gardens. Visit Jagdish Temple. Cable car ride to Karni Mata Temple. Evening cultural show at Bagore ki Haveli. Rooftop dinner overlooking lake.", highlights: ["City Palace", "Gardens", "Cultural Show", "Lake Views"]},
+                    {day: 7, title: "Desert Safari", description: "Drive to Sam Sand Dunes (5 hours from Udaipur). Camel safari in Thar Desert. Visit desert villages. Sunset over dunes. Traditional Rajasthani dinner with music. Stay in luxury desert camp under stars.", highlights: ["Desert Safari", "Camel Ride", "Sand Dunes", "Desert Camp"]},
+                    {day: 8, title: "Departure from Jaisalmer", description: "Morning visit to Jaisalmer Fort (Golden Fort). Explore Patwon ki Haveli. Shopping for handicrafts and textiles. Transfer to Jaisalmer airport. Depart with royal memories of Rajasthan.", highlights: ["Golden Fort", "Havelis", "Shopping", "Departure"]}
+                ]
+            },
+            singapore: {
+                title: "Singapore Family Delight",
+                subtitle: "5 Days / 4 Nights",
+                days: [
+                    {day: 1, title: "Arrival in Singapore", description: "Arrive at Changi Airport. Transfer to hotel. Check-in and refresh. Evening visit to Marina Bay area. Gardens by the Bay light show. Dinner at hawker center. Night walk at Marina Bay Sands.", highlights: ["Airport Transfer", "Marina Bay", "Gardens Light Show", "Hawker Center"]},
+                    {day: 2, title: "Universal Studios", description: "Full day at Universal Studios Singapore. Experience thrilling rides and shows. Visit all themed zones. Character meet and greets. Watch amazing performances. Evening at Sentosa Beach. Dinner at resort world.", highlights: ["Universal Studios", "Theme Rides", "Sentosa Island", "Beach Time"]},
+                    {day: 3, title: "City Tour & Wildlife", description: "Morning city tour - Merlion Park, Raffles Hotel. Visit Chinatown and Little India. Singapore River cruise. Afternoon at Singapore Zoo or River Safari. Night Safari experience. See nocturnal animals in natural habitat.", highlights: ["Merlion", "City Tour", "Night Safari", "Wildlife"]},
+                    {day: 4, title: "Sentosa Island Fun", description: "Full day at Sentosa Island. S.E.A. Aquarium visit. Skyline Luge and Skyride. Beach activities and relaxation. Wings of Time show. Cable car ride back to mainland. Shopping at VivoCity Mall.", highlights: ["S.E.A. Aquarium", "Skyline Luge", "Cable Car", "Beach Fun"]},
+                    {day: 5, title: "Departure", description: "Last-minute shopping at Orchard Road. Visit Singapore Flyer for city views. Browse ION Orchard and Takashimaya. Airport transfer with time to spare. Departure from Changi Airport.", highlights: ["Orchard Road", "Singapore Flyer", "Shopping", "Departure"]}
+                ]
+            },
+            chardham: {
+                title: "Char Dham Yatra",
+                subtitle: "10 Days / 9 Nights",
+                days: [
+                    {day: 1, title: "Arrival in Haridwar", description: "Arrive at Haridwar railway station/airport. Transfer to hotel. Visit Har ki Pauri ghat. Attend evening Ganga Aarti. Explore local temples. Dinner with spiritual atmosphere. Overnight at Haridwar.", highlights: ["Har ki Pauri", "Ganga Aarti", "Temple Visits", "Holy Dip"]},
+                    {day: 2, title: "Haridwar to Barkot", description: "Drive to Barkot (220km, 7-8 hours). En route visit Kempty Falls at Mussoorie. Scenic mountain drive through Uttarakhand. Check-in at hotel in Barkot. Rest and acclimatize. Overnight stay.", highlights: ["Mountain Drive", "Kempty Falls", "Scenic Views", "Acclimatization"]},
+                    {day: 3, title: "Yamunotri Dham", description: "Drive to Janki Chatti. Trek or pony ride to Yamunotri (6km). Darshan at Yamunotri Temple, source of Yamuna. Holy dip in Surya Kund. Return trek to Janki Chatti. Drive back to Barkot. Overnight stay.", highlights: ["Yamunotri Temple", "Holy Dip", "Mountain Trek", "Sacred Site"]},
+                    {day: 4, title: "Barkot to Uttarkashi", description: "Drive to Uttarkashi (100km, 4 hours). Visit Vishwanath Temple dedicated to Lord Shiva. Explore ancient town on Bhagirathi River. Local sightseeing. Rest and prepare for next temple. Overnight at Uttarkashi.", highlights: ["Vishwanath Temple", "Bhagirathi River", "Spiritual Town"]},
+                    {day: 5, title: "Gangotri Dham", description: "Day trip to Gangotri (100km one way). Visit Gangotri Temple, origin of Ganga. Witness Bhagirathi River gushing from glacier. Submerged Shivling darshan (seasonal). Drive back to Uttarkashi. Overnight stay.", highlights: ["Gangotri Temple", "Ganga Origin", "Shivling", "River Views"]},
+                    {day: 6, title: "Uttarkashi to Guptkashi", description: "Long drive to Guptkashi (220km, 8-9 hours). Pass through Tehri Dam and beautiful valleys. Check-in at hotel. Visit ancient Ardha Narishwar Temple. Rest for next day's journey. Overnight at Guptkashi.", highlights: ["Scenic Drive", "Tehri Dam", "Temple Visit", "Valley Views"]},
+                    {day: 7, title: "Kedarnath Dham", description: "Early drive to Gaurikund. Helicopter or trek to Kedarnath (16km). Darshan at sacred Kedarnath Temple. One of 12 Jyotirlingas. Overnight at Kedarnath or return to Guptkashi based on preference.", highlights: ["Kedarnath Temple", "Jyotirlinga", "Mountain Trek", "Sacred Darshan"]},
+                    {day: 8, title: "Kedarnath to Badrinath", description: "Return from Kedarnath. Drive to Badrinath via Joshimath (190km). Check-in at hotel. Evening darshan at Badrinath Temple. Witness evening aarti. Overnight at Badrinath.", highlights: ["Temple Darshan", "Evening Aarti", "Sacred Site", "Mountain Town"]},
+                    {day: 9, title: "Badrinath Sightseeing", description: "Early morning darshan at Badrinath Temple. Visit Mana Village (last Indian village). See Vyas Gufa and Ganesh Gufa. Saraswati River origin point. Drive back to Rudraprayag. Overnight stay.", highlights: ["Morning Darshan", "Mana Village", "Sacred Caves", "Confluence"]},
+                    {day: 10, title: "Return to Haridwar", description: "Drive back to Haridwar (250km). Visit Devprayag confluence point. Reach Haridwar by evening. Final darshan at Har ki Pauri. Transfer to railway station/airport. Depart with divine blessings.", highlights: ["Devprayag", "Final Darshan", "Return Journey", "Departure"]}
+                ]
+            },
+            bali: {
+                title: "Bali Island Retreat",
+                subtitle: "7 Days / 6 Nights",
+                days: [
+                    {day: 1, title: "Arrival in Bali", description: "Arrive at Ngurah Rai International Airport. Traditional Balinese welcome. Transfer to Ubud resort. Check-in and relaxation. Evening walk through Ubud town. Traditional Balinese dinner. Cultural dance performance.", highlights: ["Airport Welcome", "Ubud Resort", "Town Walk", "Dance Show"]},
+                    {day: 2, title: "Ubud Cultural Tour", description: "Visit Tegalalang Rice Terraces. Swing over jungle at Bali Swing. Explore Sacred Monkey Forest. Visit Ubud Royal Palace. Browse Ubud Art Market. Coffee plantation tour with tasting. Sunset at Campuhan Ridge.", highlights: ["Rice Terraces", "Monkey Forest", "Coffee Tour", "Art Market"]},
+                    {day: 3, title: "Temple Tour", description: "Visit Tanah Lot Temple on sea cliff. Explore Taman Ayun Royal Temple. Stop at beautiful Ulun Danu Temple on lake. Traditional Balinese lunch. Visit Jatiluwih Rice Terraces (UNESCO site). Return to Ubud evening.", highlights: ["Tanah Lot", "Ulun Danu", "UNESCO Terraces", "Temple Circuit"]},
+                    {day: 4, title: "Beach Transfer", description: "Check-out from Ubud. Drive to Seminyak beach area (1.5 hours). Check-in at beach resort. Afternoon at beach clubs. Sunset at famous beaches. Dinner at beachfront restaurant. Explore vibrant nightlife.", highlights: ["Beach Transfer", "Beach Clubs", "Sunset Views", "Nightlife"]},
+                    {day: 5, title: "Water Sports & Spa", description: "Morning water sports at Tanjung Benoa. Parasailing, jet skiing, banana boat. Snorkeling or sea walking. Afternoon traditional Balinese spa. Full body massage and treatments. Evening beach BBQ dinner.", highlights: ["Water Sports", "Parasailing", "Balinese Spa", "Beach BBQ"]},
+                    {day: 6, title: "Nusa Penida Day Trip", description: "Speedboat to Nusa Penida Island. Visit Kelingking Beach (T-Rex cliff). Angels Billabong natural pool. Broken Beach viewpoint. Snorkeling at Crystal Bay. Return to Bali evening. Farewell dinner with cultural show.", highlights: ["Nusa Penida", "Kelingking Beach", "Crystal Bay", "Island Hopping"]},
+                    {day: 7, title: "Departure", description: "Leisurely breakfast at resort. Last beach time or spa session. Shopping for souvenirs at Seminyak. Transfer to Ngurah Rai Airport. Depart with beautiful Bali memories.", highlights: ["Beach Time", "Shopping", "Airport Transfer", "Departure"]}
+                ]
+            },
+            kerala: {
+                title: "Kerala Backwaters & Hills",
+                subtitle: "6 Days / 5 Nights",
+                days: [
+                    {day: 1, title: "Arrival in Cochin", description: "Arrive at Cochin International Airport. Transfer to hotel in Fort Kochi. Visit Chinese Fishing Nets. Explore St. Francis Church and Dutch Palace. Evening Kathakali dance performance. Seafood dinner at fort area.", highlights: ["Fort Kochi", "Chinese Nets", "Kathakali Show", "Heritage Walk"]},
+                    {day: 2, title: "Munnar Hill Station", description: "Drive to Munnar (130km, 4 hours). En route visit waterfalls and viewpoints. Check-in at hill resort. Visit tea gardens and factory. Learn tea processing. Evening walk through town. Overnight at Munnar.", highlights: ["Tea Gardens", "Hill Station", "Tea Factory", "Mountain Views"]},
+                    {day: 3, title: "Munnar Sightseeing", description: "Visit Eravikulam National Park (Nilgiri Tahr). Mattupetty Dam and Echo Point. Kundala Lake boating. Visit Spice Gardens. Photography at scenic viewpoints. Optional trekking. Return to resort evening.", highlights: ["National Park", "Wildlife", "Lake Boating", "Spice Gardens"]},
+                    {day: 4, title: "Alleppey Backwaters", description: "Drive to Alleppey (170km). Board traditional houseboat at noon. Cruise through scenic backwaters. Watch village life along canals. Fresh Kerala meals prepared onboard. Sunset on backwaters. Overnight in houseboat.", highlights: ["Houseboat Cruise", "Backwater Views", "Village Life", "Kerala Cuisine"]},
+                    {day: 5, title: "Houseboat to Kovalam", description: "Morning cruise and houseboat checkout. Drive to Kovalam Beach (160km). Check-in at beach resort. Relax at Lighthouse Beach. Ayurvedic massage session. Sunset at beach. Seafood dinner by the shore.", highlights: ["Beach Resort", "Lighthouse Beach", "Ayurvedic Spa", "Beach Sunset"]},
+                    {day: 6, title: "Departure", description: "Morning at beach for swimming. Visit local markets for spices and handicrafts. Shopping for Kerala souvenirs. Checkout and transfer to Trivandrum airport. Depart with Kerala memories.", highlights: ["Beach Time", "Spice Shopping", "Souvenirs", "Departure"]}
+                ]
+            },
+            europe: {
+                title: "Grand Europe Tour",
+                subtitle: "12 Days / 11 Nights",
+                days: [
+                    {day: 1, title: "Arrival in Paris", description: "Arrive at Charles de Gaulle Airport. Transfer to hotel in central Paris. Check-in and refresh. Evening Seine River cruise. See illuminated Eiffel Tower. Welcome dinner at French bistro. Overnight at Paris.", highlights: ["Paris Arrival", "Seine Cruise", "Eiffel Tower", "French Cuisine"]},
+                    {day: 2, title: "Paris City Tour", description: "Visit iconic Eiffel Tower summit. Explore Louvre Museum and Mona Lisa. Walk through Champs-Elysees. Arc de Triomphe and Trocadero Gardens. Notre-Dame Cathedral exterior. Evening at Montmartre. Overnight at Paris.", highlights: ["Eiffel Tower", "Louvre Museum", "Champs-Elysees", "Montmartre"]},
+                    {day: 3, title: "Paris to Switzerland", description: "TGV train to Geneva, Switzerland. Transfer to Interlaken through scenic route. Check-in at hotel with mountain views. Evening walk through town. Swiss chocolate tasting. Overnight at Interlaken.", highlights: ["TGV Train", "Geneva", "Interlaken", "Swiss Alps"]},
+                    {day: 4, title: "Jungfraujoch - Top of Europe", description: "Excursion to Jungfraujoch (3,454m). Cogwheel train through mountains. Ice Palace and Sphinx Observatory. Panoramic views of Alps. Snow activities. Return to Interlaken evening. Fondue dinner.", highlights: ["Jungfraujoch", "Ice Palace", "Mountain Train", "Alpine Views"]},
+                    {day: 5, title: "Switzerland to Italy", description: "Drive to Milan, Italy via scenic routes. Brief Milan city tour - Duomo Cathedral. Continue to Venice (2.5 hours). Check-in at hotel. Evening walk at St. Mark's Square. Overnight at Venice.", highlights: ["Milan", "Venice Arrival", "St. Mark's Square", "Grand Canal"]},
+                    {day: 6, title: "Venice Exploration", description: "Walking tour of Venice islands. Visit Doge's Palace and St. Mark's Basilica. Gondola ride through canals. Murano glass factory visit. Rialto Bridge and markets. Farewell to Venice evening.", highlights: ["Gondola Ride", "Doge's Palace", "Murano Glass", "Rialto Bridge"]},
+                    {day: 7, title: "Florence - Renaissance City", description: "Drive to Florence (3 hours). Visit Duomo and Baptistery. Climb to Piazzale Michelangelo for views. Explore Uffizi Gallery. Walk Ponte Vecchio bridge. Leather market shopping. Tuscan dinner.", highlights: ["Florence Duomo", "Uffizi Gallery", "Ponte Vecchio", "Tuscan Food"]},
+                    {day: 8, title: "Rome - Eternal City", description: "Drive to Rome (3 hours). Visit Colosseum and Roman Forum. Palatine Hill exploration. Trevi Fountain and Spanish Steps. Gelato tasting. Evening at Piazza Navona. Overnight at Rome.", highlights: ["Colosseum", "Roman Forum", "Trevi Fountain", "Italian Gelato"]},
+                    {day: 9, title: "Vatican & Rome", description: "Morning tour of Vatican City. St. Peter's Basilica and Sistine Chapel. Vatican Museums. Afternoon free for shopping. Visit Pantheon. Evening at Trastevere district. Traditional Roman dinner.", highlights: ["Vatican City", "Sistine Chapel", "St. Peter's", "Trastevere"]},
+                    {day: 10, title: "Rome to Austria", description: "Flight to Vienna, Austria. Transfer to hotel. Evening city orientation tour. Visit State Opera House exterior. Walk through historic center. Austrian dinner with wine. Overnight at Vienna.", highlights: ["Vienna Arrival", "Opera House", "Historic Center", "Austrian Cuisine"]},
+                    {day: 11, title: "Vienna Sightseeing", description: "Visit Schonbrunn Palace and gardens. Hofburg Imperial Palace. St. Stephen's Cathedral. Prater amusement park. Optional classical concert. Coffee and apple strudel at traditional cafe. Last evening shopping.", highlights: ["Schonbrunn Palace", "Hofburg", "Cathedral", "Coffee Culture"]},
+                    {day: 12, title: "Departure", description: "Leisurely breakfast at hotel. Last-minute shopping for souvenirs. Transfer to Vienna International Airport. Depart with unforgettable European memories spanning 5 amazing countries.", highlights: ["Final Shopping", "Airport Transfer", "Departure", "Memories"]}
+                ]
+            }
+        };
+        }
+
+        // Function to open itinerary modal
+        function openItineraryModal(packageId) {
+            const modal = document.getElementById('itineraryModal');
+            const itinerary = itineraries[packageId];
+
+            if (!itinerary) return;
+
+            // Update title and subtitle
+            document.getElementById('itineraryTitle').textContent = itinerary.title;
+            document.getElementById('itinerarySubtitle').textContent = itinerary.subtitle;
+
+            // Build itinerary timeline
+            const timeline = document.getElementById('itineraryTimeline');
+            timeline.innerHTML = '';
+
+            itinerary.days.forEach(day => {
+                const dayCard = document.createElement('div');
+                dayCard.className = 'day-card';
+
+                const dayHeader = document.createElement('div');
+                dayHeader.className = 'day-header';
+
+                const dayNumber = document.createElement('div');
+                dayNumber.className = 'day-number';
+                dayNumber.textContent = `Day ${day.day}`;
+
+                const dayTitle = document.createElement('div');
+                dayTitle.className = 'day-title';
+                dayTitle.textContent = day.title;
+
+                dayHeader.appendChild(dayNumber);
+                dayHeader.appendChild(dayTitle);
+
+                const dayDescription = document.createElement('div');
+                dayDescription.className = 'day-description';
+                dayDescription.textContent = day.description;
+
+                const dayHighlights = document.createElement('div');
+                dayHighlights.className = 'day-highlights';
+
+                day.highlights.forEach(highlight => {
+                    const tag = document.createElement('span');
+                    tag.className = 'highlight-tag';
+                    tag.textContent = `✓ ${highlight}`;
+                    dayHighlights.appendChild(tag);
+                });
+
+                dayCard.appendChild(dayHeader);
+                dayCard.appendChild(dayDescription);
+                dayCard.appendChild(dayHighlights);
+
+                timeline.appendChild(dayCard);
+            });
+
+            // Show modal
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Function to close itinerary modal
+        function closeItineraryModal() {
+            const modal = document.getElementById('itineraryModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('itineraryModal');
+            if (event.target === modal) {
+                closeItineraryModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const modal = document.getElementById('itineraryModal');
+                if (modal.style.display === 'block') {
+                    closeItineraryModal();
+                }
+            }
+        });
+    </script>
+    <script src="auth.js"></script>
+</body>
+</html>

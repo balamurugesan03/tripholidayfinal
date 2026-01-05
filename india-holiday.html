@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holiday in India | Trip Holiday</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="logo.jpg" alt="Trip Holiday Logo" class="logo">
+                <span class="logo-text">TRIP HOLIDAY</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Destination</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="luxury-holiday.html">Luxury</a></li>
+                            <li><a href="india-holiday.html">India</a></li>
+                            <li><a href="pilgrimage.html">Pilgrimage</a></li>
+                            <li><a href="international-holiday.html">International</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="visa.html">Visa</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Profile</a>
+                        <ul class="dropdown-menu">
+                            <li class="auth-nav-item" id="loginNavItem">
+                                <a href="login.html" class="btn-nav-login">Login</a>
+                            </li>
+                            <li class="auth-nav-item" id="registerNavItem">
+                                <a href="register.html" class="btn-nav-register">Sign Up</a>
+                            </li>
+                            <li class="auth-nav-item hidden" id="userNavItem">
+                                <a href="profile.html" class="btn-nav-profile">
+                                    <span id="navUserName">My Account</span>
+                                </a>
+                            </li>
+                            <li class="auth-nav-item hidden" id="logoutNavItem">
+                                <a href="#" onclick="userLogout(event)" class="btn-nav-logout">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section with Unsplash Background -->
+        <section class="hero" style="position: relative; overflow: hidden; padding: 6rem 2rem;">
+            <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=1920&h=800&fit=crop" alt="Incredible India" class="hero-bg" style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+            <div class="hero-content">
+                <div class="fade-in floating" style="font-size: 4rem; margin-bottom: 1rem;">🇮🇳</div>
+                <h1 class="fade-in gradient-text">Incredible India</h1>
+                <p class="fade-in typing-text" data-text="Discover the diverse beauty and rich heritage of India">Discover the diverse beauty and rich heritage of India</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <section style="margin: 3rem 0;">
+                <h2 class="section-title">Top Destinations in India</h2>
+                <div class="grid grid-3" style="margin-top: 2rem;">
+                    <div class="package-card fade-in zoom-in">
+                        <div style="overflow: hidden; height: 200px;">
+                            <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800&h=600&fit=crop" alt="Goa" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="package-content">
+                            <span class="package-badge">Beach Paradise</span>
+                            <h3 class="package-title">Goa Beach Getaway</h3>
+                            <p style="color: var(--text-gray);">Beaches, water sports, nightlife, Portuguese heritage</p>
+                            <div class="package-price counter" data-target="35000">₹35,000</div>
+                            <a href="booking-without-flight.html" class="btn btn-primary pulse" style="width: 100%; margin-top: 1rem; text-align: center;">Book Now</a>
+                        </div>
+                    </div>
+
+                    <div class="package-card fade-in zoom-in" style="animation-delay: 0.1s;">
+                        <div style="overflow: hidden; height: 200px;">
+                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop" alt="Kashmir" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="package-content">
+                            <span class="package-badge">Paradise on Earth</span>
+                            <h3 class="package-title">Kashmir Valley Tour</h3>
+                            <p style="color: var(--text-gray);">Houseboats, gardens, Shikara rides, snow-capped mountains</p>
+                            <div class="package-price counter" data-target="65000">₹65,000</div>
+                            <a href="booking-without-flight.html" class="btn btn-primary pulse" style="width: 100%; margin-top: 1rem; text-align: center;">Book Now</a>
+                        </div>
+                    </div>
+
+                    <div class="package-card fade-in zoom-in" style="animation-delay: 0.2s;">
+                        <div style="overflow: hidden; height: 200px;">
+                            <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?w=800&h=600&fit=crop" alt="Rajasthan" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="package-content">
+                            <span class="package-badge">Royal Heritage</span>
+                            <h3 class="package-title">Rajasthan Royal Tour</h3>
+                            <p style="color: var(--text-gray);">Palaces, forts, desert safari, cultural richness</p>
+                            <div class="package-price counter" data-target="78000">₹78,000</div>
+                            <a href="booking-without-flight.html" class="btn btn-primary pulse" style="width: 100%; margin-top: 1rem; text-align: center;">Book Now</a>
+                        </div>
+                    </div>
+
+                    <div class="package-card fade-in zoom-in" style="animation-delay: 0.3s;">
+                        <div style="overflow: hidden; height: 200px;">
+                            <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=800&h=600&fit=crop" alt="Kerala" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="package-content">
+                            <span class="package-badge">God's Own Country</span>
+                            <h3 class="package-title">Kerala Backwaters</h3>
+                            <p style="color: var(--text-gray);">Houseboats, hill stations, beaches, Ayurveda</p>
+                            <div class="package-price counter" data-target="43000">₹43,000</div>
+                            <a href="booking-without-flight.html" class="btn btn-primary pulse" style="width: 100%; margin-top: 1rem; text-align: center;">Book Now</a>
+                        </div>
+                    </div>
+
+                    <div class="package-card fade-in zoom-in" style="animation-delay: 0.4s;">
+                        <div style="overflow: hidden; height: 200px;">
+                            <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800&h=600&fit=crop" alt="Himachal" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="package-content">
+                            <span class="package-badge">Mountain Beauty</span>
+                            <h3 class="package-title">Himachal Adventure</h3>
+                            <p style="color: var(--text-gray);">Manali, Shimla, Dharamshala - hills & adventures</p>
+                            <div class="package-price counter" data-target="40000">₹40,000</div>
+                            <a href="booking-without-flight.html" class="btn btn-primary pulse" style="width: 100%; margin-top: 1rem; text-align: center;">Book Now</a>
+                        </div>
+                    </div>
+
+                    <div class="package-card fade-in zoom-in" style="animation-delay: 0.5s;">
+                        <div style="overflow: hidden; height: 200px;">
+                            <img src="https://images.unsplash.com/photo-1548013146-72479768bada?w=800&h=600&fit=crop" alt="Uttarakhand" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="package-content">
+                            <span class="package-badge">Spiritual & Natural</span>
+                            <h3 class="package-title">Uttarakhand Wonders</h3>
+                            <p style="color: var(--text-gray);">Rishikesh, Haridwar, Nainital, Mussoorie</p>
+                            <div class="package-price counter" data-target="37000">₹37,000</div>
+                            <a href="booking-without-flight.html" class="btn btn-primary pulse" style="width: 100%; margin-top: 1rem; text-align: center;">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section style="margin: 4rem 0;">
+                <h2 class="section-title">Explore India by Region</h2>
+                <div class="grid grid-2" style="margin-top: 2rem; gap: 2rem;">
+                    <div class="card fade-in slide-in-left card-3d">
+                        <h3 style="color: var(--primary-orange); margin-bottom: 1rem;">🏔️ North India</h3>
+                        <p style="color: var(--text-gray); margin-bottom: 1rem;">Mountains, heritage, and spirituality</p>
+                        <ul style="line-height: 2; color: var(--text-gray);">
+                            <li>Kashmir - Dal Lake, Gulmarg, Pahalgam</li>
+                            <li>Himachal - Manali, Shimla, Dharamshala</li>
+                            <li>Uttarakhand - Rishikesh, Haridwar, Nainital</li>
+                            <li>Rajasthan - Jaipur, Udaipur, Jaisalmer</li>
+                            <li>Delhi, Agra - Taj Mahal, Red Fort</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3 style="color: var(--primary-orange); margin-bottom: 1rem;">🏖️ South India</h3>
+                        <p style="color: var(--text-gray); margin-bottom: 1rem;">Temples, beaches, and backwaters</p>
+                        <ul style="line-height: 2; color: var(--text-gray);">
+                            <li>Kerala - Backwaters, Munnar, Kochi</li>
+                            <li>Goa - Beaches, Churches, Nightlife</li>
+                            <li>Karnataka - Coorg, Bangalore, Mysore</li>
+                            <li>Tamil Nadu - Chennai, Ooty, Madurai</li>
+                            <li>Andhra Pradesh - Tirupati, Hyderabad</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3 style="color: var(--primary-orange); margin-bottom: 1rem;">🌄 East India</h3>
+                        <p style="color: var(--text-gray); margin-bottom: 1rem;">Culture, tea gardens, and monasteries</p>
+                        <ul style="line-height: 2; color: var(--text-gray);">
+                            <li>Sikkim - Gangtok, Pelling, Lachung</li>
+                            <li>Darjeeling - Tea Gardens, Toy Train</li>
+                            <li>Assam - Wildlife, Tea Estates</li>
+                            <li>West Bengal - Kolkata, Sundarbans</li>
+                            <li>Odisha - Puri, Konark, Bhubaneswar</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3 style="color: var(--primary-orange); margin-bottom: 1rem;">🏜️ West India</h3>
+                        <p style="color: var(--text-gray); margin-bottom: 1rem;">Deserts, beaches, and vibrant culture</p>
+                        <ul style="line-height: 2; color: var(--text-gray);">
+                            <li>Rajasthan - Deserts, Palaces, Forts</li>
+                            <li>Gujarat - Rann of Kutch, Dwarka</li>
+                            <li>Maharashtra - Mumbai, Lonavala, Pune</li>
+                            <li>Goa - Beaches, Water Sports</li>
+                            <li>Madhya Pradesh - Khajuraho, Bhopal</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section style="margin: 4rem 0; padding: 3rem; background: linear-gradient(135deg, #fff5ec, #ffe8d6); border-radius: 20px;">
+                <h2 class="section-title" style="text-align: center;">Why Choose India Tours</h2>
+                <div class="grid grid-3" style="margin-top: 2rem;">
+                    <div style="text-align: center; padding: 1rem;">
+                        <div style="font-size: 3rem; color: var(--primary-orange); margin-bottom: 1rem;">🏛️</div>
+                        <h3 style="margin-bottom: 0.5rem;">Rich Heritage</h3>
+                        <p style="color: var(--text-gray);">5000+ years of history and culture</p>
+                    </div>
+                    <div style="text-align: center; padding: 1rem;">
+                        <div style="font-size: 3rem; color: var(--primary-orange); margin-bottom: 1rem;">🌈</div>
+                        <h3 style="margin-bottom: 0.5rem;">Diversity</h3>
+                        <p style="color: var(--text-gray);">28 states, each with unique charm</p>
+                    </div>
+                    <div style="text-align: center; padding: 1rem;">
+                        <div style="font-size: 3rem; color: var(--primary-orange); margin-bottom: 1rem;">🍛</div>
+                        <h3 style="margin-bottom: 0.5rem;">Cuisine</h3>
+                        <p style="color: var(--text-gray);">Incredible food experiences</p>
+                    </div>
+                    <div style="text-align: center; padding: 1rem;">
+                        <div style="font-size: 3rem; color: var(--primary-orange); margin-bottom: 1rem;">🏔️</div>
+                        <h3 style="margin-bottom: 0.5rem;">Natural Beauty</h3>
+                        <p style="color: var(--text-gray);">From Himalayas to beaches</p>
+                    </div>
+                    <div style="text-align: center; padding: 1rem;">
+                        <div style="font-size: 3rem; color: var(--primary-orange); margin-bottom: 1rem;">🎨</div>
+                        <h3 style="margin-bottom: 0.5rem;">Arts & Crafts</h3>
+                        <p style="color: var(--text-gray);">Unique handicrafts & textiles</p>
+                    </div>
+                    <div style="text-align: center; padding: 1rem;">
+                        <div style="font-size: 3rem; color: var(--primary-orange); margin-bottom: 1rem;">💰</div>
+                        <h3 style="margin-bottom: 0.5rem;">Value for Money</h3>
+                        <p style="color: var(--text-gray);">Affordable luxury experiences</p>
+                    </div>
+                </div>
+            </section>
+
+            <section style="margin: 4rem 0; text-align: center;">
+                <h2 class="section-title" style="display: block; text-align: center;">Start Your India Journey</h2>
+                <p style="font-size: 1.2rem; color: var(--text-gray); margin: 2rem 0;">Discover the incredible diversity of India with our customized packages</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="packages.html?destination=india" class="btn btn-primary">View India Packages</a>
+                    <a href="booking-without-flight.html" class="btn btn-secondary">Book Now</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Trip Holiday</h3>
+                <p>Your trusted travel partner for creating unforgettable memories.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="packages.html">All Packages</a></li>
+                    <li><a href="blog.html">Travel Blog</a></li>
+                    <li><a href="visa.html">Visa Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Policies</h3>
+                <ul>
+                    <li><a href="cancellation-policy.html">Cancellation Policy</a></li>
+                    <li><a href="date-change-policy.html">Date Change Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: Info@tripholiday.in</p>
+                <p>Phone: 7042252130</p>
+                <p>Address: IT Park, Industrial Area Phase 8B, Sector 74, Mohali - Punjab</p>
+                <p>PIN Code: 160055</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Trip Holiday. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

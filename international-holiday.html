@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Holidays | Trip Holiday</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="logo.jpg" alt="Trip Holiday Logo" class="logo">
+                <span class="logo-text">TRIP HOLIDAY</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Destination</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="luxury-holiday.html">Luxury</a></li>
+                            <li><a href="india-holiday.html">India</a></li>
+                            <li><a href="pilgrimage.html">Pilgrimage</a></li>
+                            <li><a href="international-holiday.html">International</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="visa.html">Visa</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Profile</a>
+                        <ul class="dropdown-menu">
+                            <li class="auth-nav-item" id="loginNavItem">
+                                <a href="login.html" class="btn-nav-login">Login</a>
+                            </li>
+                            <li class="auth-nav-item" id="registerNavItem">
+                                <a href="register.html" class="btn-nav-register">Sign Up</a>
+                            </li>
+                            <li class="auth-nav-item hidden" id="userNavItem">
+                                <a href="profile.html" class="btn-nav-profile">
+                                    <span id="navUserName">My Account</span>
+                                </a>
+                            </li>
+                            <li class="auth-nav-item hidden" id="logoutNavItem">
+                                <a href="#" onclick="userLogout(event)" class="btn-nav-logout">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section with Unsplash Background -->
+        <section class="hero" style="position: relative; overflow: hidden; padding: 6rem 2rem;">
+            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1920&h=800&fit=crop" alt="International Travel" class="hero-bg" style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+            <div class="hero-content">
+                <div class="fade-in floating" style="font-size: 4rem; margin-bottom: 1rem;">🌍</div>
+                <h1 class="fade-in gradient-text">International Holidays</h1>
+                <p class="fade-in typing-text" data-text="Explore the world with our curated international travel packages">Explore the world with our curated international travel packages</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <section style="margin: 3rem 0;">
+                <h2 class="section-title">Popular International Destinations</h2>
+                <div class="grid grid-3" style="margin-top: 2rem;">
+                    <div class="package-card fade-in zoom-in">
+                        <div style="overflow: hidden; height: 200px;">
+                            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&h=600&fit=crop" alt="Dubai" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="package-content">
+                            <span class="package-badge counter" data-target="100000">₹1,00,000</span>
+                            <h3 class="package-title">Dubai Tours</h3>
+                            <p style="color: var(--text-gray);">Burj Khalifa, Desert Safari, Dubai Mall, Marina Cruise</p>
+                            <a href="booking-with-flight.html" class="btn btn-primary pulse" style="width: 100%; margin-top: 1rem; text-align: center;">Explore</a>
+                        </div>
+                    </div>
+
+                    <div class="package-card fade-in zoom-in" style="animation-delay: 0.1s;">
+                        <div style="overflow: hidden; height: 200px;">
+                            <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop" alt="Maldives" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="package-content">
+                            <span class="package-badge counter" data-target="150000">₹1,50,000</span>
+                            <h3 class="package-title">Maldives Paradise</h3>
+                            <p style="color: var(--text-gray);">Beach resorts, water sports, island hopping, romantic escapes</p>
+                            <a href="booking-with-flight.html" class="btn btn-primary pulse" style="width: 100%; margin-top: 1rem; text-align: center;">Explore</a>
+                        </div>
+                    </div>
+
+                    <div class="package-card fade-in zoom-in" style="animation-delay: 0.2s;">
+                        <div style="overflow: hidden; height: 200px;">
+                            <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=800&h=600&fit=crop" alt="Thailand" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="package-content">
+                            <span class="package-badge counter" data-target="70000">₹70,000</span>
+                            <h3 class="package-title">Thailand Explorer</h3>
+                            <p style="color: var(--text-gray);">Bangkok, Pattaya, Phuket - temples, beaches, nightlife</p>
+                            <a href="booking-with-flight.html" class="btn btn-primary pulse" style="width: 100%; margin-top: 1rem; text-align: center;">Explore</a>
+                        </div>
+                    </div>
+
+                    <div class="package-card fade-in zoom-in" style="animation-delay: 0.3s;">
+                        <div style="overflow: hidden; height: 200px;">
+                            <img src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=800&h=600&fit=crop" alt="Singapore" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="package-content">
+                            <span class="package-badge counter" data-target="90000">₹90,000</span>
+                            <h3 class="package-title">Singapore Delights</h3>
+                            <p style="color: var(--text-gray);">Universal Studios, Sentosa, Gardens by the Bay, Marina Bay</p>
+                            <a href="booking-with-flight.html" class="btn btn-primary pulse" style="width: 100%; margin-top: 1rem; text-align: center;">Explore</a>
+                        </div>
+                    </div>
+
+                    <div class="package-card fade-in zoom-in" style="animation-delay: 0.4s;">
+                        <div style="overflow: hidden; height: 200px;">
+                            <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&h=600&fit=crop" alt="Bali" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="package-content">
+                            <span class="package-badge counter" data-target="115000">₹1,15,000</span>
+                            <h3 class="package-title">Bali Island Escape</h3>
+                            <p style="color: var(--text-gray);">Temples, rice terraces, beach clubs, cultural experiences</p>
+                            <a href="booking-with-flight.html" class="btn btn-primary pulse" style="width: 100%; margin-top: 1rem; text-align: center;">Explore</a>
+                        </div>
+                    </div>
+
+                    <div class="package-card fade-in zoom-in" style="animation-delay: 0.5s;">
+                        <div style="overflow: hidden; height: 200px;">
+                            <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=800&h=600&fit=crop" alt="Europe" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="package-content">
+                            <span class="package-badge counter" data-target="230000">₹2,30,000</span>
+                            <h3 class="package-title">Europe Grand Tour</h3>
+                            <p style="color: var(--text-gray);">Paris, Switzerland, Italy - multi-country packages available</p>
+                            <a href="booking-with-flight.html" class="btn btn-primary glow" style="width: 100%; margin-top: 1rem; text-align: center;">Explore</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="fade-in zoom-in" style="margin: 4rem 0; background: var(--white); padding: 3rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+                <h2 class="section-title gradient-text">What's Included in International Packages</h2>
+                <div class="grid grid-2" style="margin-top: 2rem; gap: 2rem;">
+                    <div class="card slide-in-left card-3d">
+                        <h3 style="color: var(--primary-orange); margin-bottom: 1rem;">✈️ Flights & Transfers</h3>
+                        <ul style="line-height: 2; color: var(--text-gray);">
+                            <li>Round-trip international flights</li>
+                            <li>Airport pickup & drop-off</li>
+                            <li>Inter-city transfers</li>
+                            <li>Baggage allowance included</li>
+                        </ul>
+                    </div>
+                    <div class="card slide-in-right card-3d">
+                        <h3 style="color: var(--primary-orange); margin-bottom: 1rem;">🏨 Accommodation</h3>
+                        <ul style="line-height: 2; color: var(--text-gray);">
+                            <li>3/4/5-star hotels as per package</li>
+                            <li>Daily breakfast included</li>
+                            <li>Prime locations</li>
+                            <li>Well-reviewed properties</li>
+                        </ul>
+                    </div>
+                    <div class="card slide-in-left card-3d" style="animation-delay: 0.1s;">
+                        <h3 style="color: var(--primary-orange); margin-bottom: 1rem;">🗺️ Sightseeing</h3>
+                        <ul style="line-height: 2; color: var(--text-gray);">
+                            <li>Guided city tours</li>
+                            <li>Entry tickets to major attractions</li>
+                            <li>Professional English-speaking guides</li>
+                            <li>Photo stops at iconic landmarks</li>
+                        </ul>
+                    </div>
+                    <div class="card slide-in-right card-3d" style="animation-delay: 0.1s;">
+                        <h3 style="color: var(--primary-orange); margin-bottom: 1rem;">🎯 Additional Services</h3>
+                        <ul style="line-height: 2; color: var(--text-gray);">
+                            <li>Visa assistance</li>
+                            <li>Travel insurance options</li>
+                            <li>24/7 customer support</li>
+                            <li>Currency exchange guidance</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section style="margin: 4rem 0;">
+                <h2 class="section-title">Choose Your Travel Style</h2>
+                <div class="grid grid-4" style="margin-top: 2rem;">
+                    <div class="card slide-in-left">
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">🏖️</div>
+                            <h3 style="color: var(--primary-orange);">Beach Holidays</h3>
+                            <p style="color: var(--text-gray); margin-top: 0.5rem;">Maldives, Bali, Thailand, Mauritius</p>
+                        </div>
+                    </div>
+                    <div class="card slide-in-left" style="animation-delay: 0.1s;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">🏔️</div>
+                            <h3 style="color: var(--primary-orange);">Mountain Escapes</h3>
+                            <p style="color: var(--text-gray); margin-top: 0.5rem;">Switzerland, Nepal, New Zealand</p>
+                        </div>
+                    </div>
+                    <div class="card slide-in-left" style="animation-delay: 0.2s;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">🏛️</div>
+                            <h3 style="color: var(--primary-orange);">Cultural Tours</h3>
+                            <p style="color: var(--text-gray); margin-top: 0.5rem;">Europe, Egypt, Japan, Greece</p>
+                        </div>
+                    </div>
+                    <div class="card slide-in-left" style="animation-delay: 0.3s;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">🎢</div>
+                            <h3 style="color: var(--primary-orange);">Theme Parks</h3>
+                            <p style="color: var(--text-gray); margin-top: 0.5rem;">Dubai, Singapore, Orlando</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section style="margin: 4rem 0; text-align: center; padding: 3rem; background: linear-gradient(135deg, rgba(255, 127, 39, 0.1), rgba(255, 127, 39, 0.05)); border-radius: 20px;">
+                <h2 class="section-title" style="display: block; text-align: center;">Important Travel Information</h2>
+                <div class="grid grid-2" style="margin-top: 2rem; text-align: left;">
+                    <div>
+                        <h3 style="color: var(--primary-orange); margin-bottom: 1rem;">Before You Travel</h3>
+                        <ul style="line-height: 2; color: var(--text-gray);">
+                            <li>Valid passport with 6 months validity</li>
+                            <li>Visa requirements - check our <a href="visa.html" style="color: var(--primary-orange);">visa page</a></li>
+                            <li>Travel insurance recommended</li>
+                            <li>Currency exchange information</li>
+                            <li>Vaccination requirements if any</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--primary-orange); margin-bottom: 1rem;">During Your Trip</h3>
+                        <ul style="line-height: 2; color: var(--text-gray);">
+                            <li>Emergency contact numbers provided</li>
+                            <li>Local SIM card assistance</li>
+                            <li>24/7 customer support available</li>
+                            <li>Guide contact information</li>
+                            <li>Embassy contact details</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="fade-in zoom-in" style="margin: 4rem 0; text-align: center;">
+                <h2 class="section-title gradient-text" style="display: block; text-align: center;">Ready to Explore the World?</h2>
+                <p class="typing-text" data-text="Browse our international packages and book your dream destination today" style="font-size: 1.2rem; color: var(--text-gray); margin: 2rem 0;">Browse our international packages and book your dream destination today</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="packages.html?destination=international" class="btn btn-primary pulse">View All International Packages</a>
+                    <a href="visa.html" class="btn btn-secondary glow">Check Visa Requirements</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Trip Holiday</h3>
+                <p>Your trusted travel partner for creating unforgettable memories.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="packages.html">All Packages</a></li>
+                    <li><a href="blog.html">Travel Blog</a></li>
+                    <li><a href="visa.html">Visa Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Policies</h3>
+                <ul>
+                    <li><a href="cancellation-policy.html">Cancellation Policy</a></li>
+                    <li><a href="date-change-policy.html">Date Change Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: Info@tripholiday.in</p>
+                <p>Phone: 7042252130</p>
+                <p>Address: IT Park, Industrial Area Phase 8B, Sector 74, Mohali - Punjab</p>
+                <p>PIN Code: 160055</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Trip Holiday. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Blog | Trip Holiday</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .blog-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(255, 127, 39, 0.2);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 1rem;
+            color: var(--text-gray);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-category {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-orange), var(--dark-orange));
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="logo.jpg" alt="Trip Holiday Logo" class="logo">
+                <span class="logo-text">TRIP HOLIDAY</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Destination</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="luxury-holiday.html">Luxury</a></li>
+                            <li><a href="india-holiday.html">India</a></li>
+                            <li><a href="pilgrimage.html">Pilgrimage</a></li>
+                            <li><a href="international-holiday.html">International</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="visa.html">Visa</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Profile</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="register.html">Sign Up</a></li>
+                            <li><a href="profile.html">My Account</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" style="padding: 6rem 2rem;">
+            <div class="hero-content">
+                <div style="font-size: 4rem; margin-bottom: 1rem;">✍️</div>
+                <h1>Travel Blog</h1>
+                <p>Stories, tips, and inspiration for your next adventure</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <section style="margin: 3rem 0;">
+                <div class="grid grid-3">
+                    <!-- Blog Post 1 -->
+                    <div class="blog-card fade-in">
+                        <div class="blog-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), linear-gradient(135deg, #FF7F27, #E66A1A);"></div>
+                        <div class="blog-content">
+                            <span class="blog-category">Travel Tips</span>
+                            <h3 style="color: var(--black); margin-bottom: 0.5rem;">10 Essential Travel Tips for First-Time International Travelers</h3>
+                            <div class="blog-meta">
+                                <span>📅 Dec 20, 2025</span>
+                                <span>👤 Admin</span>
+                            </div>
+                            <p style="color: var(--text-gray); line-height: 1.8;">Planning your first international trip? Here are essential tips to make your journey smooth, from passport preparation to currency exchange and cultural etiquette.</p>
+                            <a href="#" style="color: var(--primary-orange); font-weight: 600; margin-top: 1rem; display: inline-block;">Read More →</a>
+                        </div>
+                    </div>
+
+                    <!-- Blog Post 2 -->
+                    <div class="blog-card fade-in" style="animation-delay: 0.1s;">
+                        <div class="blog-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), linear-gradient(135deg, #00BCD4, #0097A7);"></div>
+                        <div class="blog-content">
+                            <span class="blog-category">Destinations</span>
+                            <h3 style="color: var(--black); margin-bottom: 0.5rem;">Hidden Gems of India: 15 Off-Beat Destinations to Explore</h3>
+                            <div class="blog-meta">
+                                <span>📅 Dec 18, 2025</span>
+                                <span>👤 Travel Expert</span>
+                            </div>
+                            <p style="color: var(--text-gray); line-height: 1.8;">Tired of crowded tourist spots? Discover India's best-kept secrets - pristine valleys, ancient villages, and unexplored beaches that will take your breath away.</p>
+                            <a href="#" style="color: var(--primary-orange); font-weight: 600; margin-top: 1rem; display: inline-block;">Read More →</a>
+                        </div>
+                    </div>
+
+                    <!-- Blog Post 3 -->
+                    <div class="blog-card fade-in" style="animation-delay: 0.2s;">
+                        <div class="blog-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), linear-gradient(135deg, #4CAF50, #2E7D32);"></div>
+                        <div class="blog-content">
+                            <span class="blog-category">Budget Travel</span>
+                            <h3 style="color: var(--black); margin-bottom: 0.5rem;">How to Plan a Budget-Friendly International Trip</h3>
+                            <div class="blog-meta">
+                                <span>📅 Dec 15, 2025</span>
+                                <span>👤 Budget Guru</span>
+                            </div>
+                            <p style="color: var(--text-gray); line-height: 1.8;">International travel doesn't have to break the bank. Learn smart strategies to save money on flights, accommodation, food, and activities without compromising on experiences.</p>
+                            <a href="#" style="color: var(--primary-orange); font-weight: 600; margin-top: 1rem; display: inline-block;">Read More →</a>
+                        </div>
+                    </div>
+
+                    <!-- Blog Post 4 -->
+                    <div class="blog-card fade-in" style="animation-delay: 0.3s;">
+                        <div class="blog-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), linear-gradient(135deg, #E91E63, #C2185B);"></div>
+                        <div class="blog-content">
+                            <span class="blog-category">Adventure</span>
+                            <h3 style="color: var(--black); margin-bottom: 0.5rem;">Top 10 Adventure Activities in India for Thrill Seekers</h3>
+                            <div class="blog-meta">
+                                <span>📅 Dec 12, 2025</span>
+                                <span>👤 Adventure Team</span>
+                            </div>
+                            <p style="color: var(--text-gray); line-height: 1.8;">From paragliding in Bir Billing to scuba diving in Andaman, discover the most thrilling adventure activities across India that will get your adrenaline pumping.</p>
+                            <a href="#" style="color: var(--primary-orange); font-weight: 600; margin-top: 1rem; display: inline-block;">Read More →</a>
+                        </div>
+                    </div>
+
+                    <!-- Blog Post 5 -->
+                    <div class="blog-card fade-in" style="animation-delay: 0.4s;">
+                        <div class="blog-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), linear-gradient(135deg, #673AB7, #512DA8);"></div>
+                        <div class="blog-content">
+                            <span class="blog-category">Culture</span>
+                            <h3 style="color: var(--black); margin-bottom: 0.5rem;">Cultural Etiquette: What to Know Before Visiting Different Countries</h3>
+                            <div class="blog-meta">
+                                <span>📅 Dec 10, 2025</span>
+                                <span>👤 Cultural Guide</span>
+                            </div>
+                            <p style="color: var(--text-gray); line-height: 1.8;">Respect local customs and avoid cultural faux pas. Your essential guide to cultural etiquette when traveling to popular international destinations.</p>
+                            <a href="#" style="color: var(--primary-orange); font-weight: 600; margin-top: 1rem; display: inline-block;">Read More →</a>
+                        </div>
+                    </div>
+
+                    <!-- Blog Post 6 -->
+                    <div class="blog-card fade-in" style="animation-delay: 0.5s;">
+                        <div class="blog-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), linear-gradient(135deg, #FF5722, #D84315);"></div>
+                        <div class="blog-content">
+                            <span class="blog-category">Food & Travel</span>
+                            <h3 style="color: var(--black); margin-bottom: 0.5rem;">Must-Try Street Food in Every Indian State</h3>
+                            <div class="blog-meta">
+                                <span>📅 Dec 8, 2025</span>
+                                <span>👤 Food Traveler</span>
+                            </div>
+                            <p style="color: var(--text-gray); line-height: 1.8;">India's street food is legendary. From Mumbai's vada pav to Kolkata's kathi rolls, explore the iconic street foods that define each state's culinary identity.</p>
+                            <a href="#" style="color: var(--primary-orange); font-weight: 600; margin-top: 1rem; display: inline-block;">Read More →</a>
+                        </div>
+                    </div>
+
+                    <!-- Blog Post 7 -->
+                    <div class="blog-card fade-in" style="animation-delay: 0.6s;">
+                        <div class="blog-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), linear-gradient(135deg, #009688, #00796B);"></div>
+                        <div class="blog-content">
+                            <span class="blog-category">Solo Travel</span>
+                            <h3 style="color: var(--black); margin-bottom: 0.5rem;">Solo Travel Safety: Tips for Women Travelers</h3>
+                            <div class="blog-meta">
+                                <span>📅 Dec 5, 2025</span>
+                                <span>👤 Solo Traveler</span>
+                            </div>
+                            <p style="color: var(--text-gray); line-height: 1.8;">Traveling solo as a woman can be incredibly empowering. Here are essential safety tips, destination recommendations, and how to make the most of your solo journey.</p>
+                            <a href="#" style="color: var(--primary-orange); font-weight: 600; margin-top: 1rem; display: inline-block;">Read More →</a>
+                        </div>
+                    </div>
+
+                    <!-- Blog Post 8 -->
+                    <div class="blog-card fade-in" style="animation-delay: 0.7s;">
+                        <div class="blog-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), linear-gradient(135deg, #3F51B5, #283593);"></div>
+                        <div class="blog-content">
+                            <span class="blog-category">Photography</span>
+                            <h3 style="color: var(--black); margin-bottom: 0.5rem;">Travel Photography Tips: Capture Memories Like a Pro</h3>
+                            <div class="blog-meta">
+                                <span>📅 Dec 3, 2025</span>
+                                <span>👤 Photo Expert</span>
+                            </div>
+                            <p style="color: var(--text-gray); line-height: 1.8;">Transform your travel photos from snapshots to stunning memories. Learn composition, lighting, and editing tips to capture the essence of your adventures.</p>
+                            <a href="#" style="color: var(--primary-orange); font-weight: 600; margin-top: 1rem; display: inline-block;">Read More →</a>
+                        </div>
+                    </div>
+
+                    <!-- Blog Post 9 -->
+                    <div class="blog-card fade-in" style="animation-delay: 0.8s;">
+                        <div class="blog-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), linear-gradient(135deg, #FFA726, #F57C00);"></div>
+                        <div class="blog-content">
+                            <span class="blog-category">Planning</span>
+                            <h3 style="color: var(--black); margin-bottom: 0.5rem;">Ultimate Packing List for Different Types of Trips</h3>
+                            <div class="blog-meta">
+                                <span>📅 Dec 1, 2025</span>
+                                <span>👤 Packing Pro</span>
+                            </div>
+                            <p style="color: var(--text-gray); line-height: 1.8;">Never forget an essential item again. Comprehensive packing lists for beach vacations, mountain treks, city tours, and pilgrimage trips to ensure you're prepared.</p>
+                            <a href="#" style="color: var(--primary-orange); font-weight: 600; margin-top: 1rem; display: inline-block;">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section style="margin: 4rem 0; text-align: center; padding: 3rem; background: linear-gradient(135deg, #fff5ec, #ffe8d6); border-radius: 20px;">
+                <h2 class="section-title" style="display: block; text-align: center;">Subscribe to Our Newsletter</h2>
+                <p style="font-size: 1.1rem; color: var(--text-gray); margin: 1rem 0;">Get the latest travel tips, destination guides, and exclusive deals delivered to your inbox</p>
+                <div style="max-width: 500px; margin: 2rem auto; display: flex; gap: 1rem;">
+                    <input type="email" class="form-control" placeholder="Your email address" style="flex: 1;">
+                    <button class="btn btn-primary">Subscribe</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Trip Holiday</h3>
+                <p>Your trusted travel partner for creating unforgettable memories.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="packages.html">All Packages</a></li>
+                    <li><a href="blog.html">Travel Blog</a></li>
+                    <li><a href="visa.html">Visa Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Policies</h3>
+                <ul>
+                    <li><a href="cancellation-policy.html">Cancellation Policy</a></li>
+                    <li><a href="date-change-policy.html">Date Change Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: Info@tripholiday.in</p>
+                <p>Phone: 7042252130</p>
+                <p>Address: IT Park, Industrial Area Phase 8B, Sector 74, Mohali - Punjab</p>
+                <p>PIN Code: 160055</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Trip Holiday. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

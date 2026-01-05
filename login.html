@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Trip Holiday</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="logo.jpg" alt="Trip Holiday Logo" class="logo">
+                <span class="logo-text">TRIP HOLIDAY</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Destination</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="luxury-holiday.html">Luxury</a></li>
+                            <li><a href="india-holiday.html">India</a></li>
+                            <li><a href="pilgrimage.html">Pilgrimage</a></li>
+                            <li><a href="international-holiday.html">International</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="visa.html">Visa</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Profile</a>
+                        <ul class="dropdown-menu">
+                            <li class="auth-nav-item" id="loginNavItem">
+                                <a href="login.html" class="btn-nav-login">Login</a>
+                            </li>
+                            <li class="auth-nav-item" id="registerNavItem">
+                                <a href="register.html" class="btn-nav-register">Sign Up</a>
+                            </li>
+                            <li class="auth-nav-item hidden" id="userNavItem">
+                                <a href="profile.html" class="btn-nav-profile">
+                                    <span id="navUserName">My Account</span>
+                                </a>
+                            </li>
+                            <li class="auth-nav-item hidden" id="logoutNavItem">
+                                <a href="#" onclick="userLogout(event)" class="btn-nav-logout">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="auth-container" style="min-height: 80vh; display: flex; align-items: center; justify-content: center; padding: 2rem;">
+            <div class="auth-card" style="max-width: 450px; width: 100%; background: white; padding: 3rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
+                <h1 style="text-align: center; color: var(--primary-orange); margin-bottom: 0.5rem;">Welcome Back</h1>
+                <p style="text-align: center; color: var(--text-gray); margin-bottom: 2rem;">Login to continue your journey</p>
+
+                <div id="errorMessage" class="error-message" style="display: none; background: #fee; color: #c33; padding: 0.75rem; border-radius: 4px; margin-bottom: 1rem; font-size: 0.9rem;"></div>
+
+                <form id="loginForm" onsubmit="handleLogin(event)">
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="email" style="display: block; margin-bottom: 0.5rem; color: #333; font-weight: 500;">Email Address</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                            placeholder="Enter your email"
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 6px; font-size: 1rem; transition: border-color 0.3s;"
+                            onfocus="this.style.borderColor='var(--primary-orange)'"
+                            onblur="this.style.borderColor='#ddd'"
+                        >
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="password" style="display: block; margin-bottom: 0.5rem; color: #333; font-weight: 500;">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            required
+                            placeholder="Enter your password"
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 6px; font-size: 1rem; transition: border-color 0.3s;"
+                            onfocus="this.style.borderColor='var(--primary-orange)'"
+                            onblur="this.style.borderColor='#ddd'"
+                        >
+                    </div>
+
+                    <button
+                        type="submit"
+                        id="loginBtn"
+                        class="btn btn-primary"
+                        style="width: 100%; padding: 0.875rem; font-size: 1.1rem; margin-bottom: 1rem;"
+                    >
+                        Login
+                    </button>
+                </form>
+
+                <p style="text-align: center; color: var(--text-gray); margin-top: 1.5rem;">
+                    Don't have an account?
+                    <a href="register.html" style="color: var(--primary-orange); text-decoration: none; font-weight: 600;">Sign Up</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer style="background: #1a1a1a; color: white; padding: 2rem 0; margin-top: 4rem;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                <div>
+                    <h3 style="color: var(--primary-orange); margin-bottom: 1rem;">Trip Holiday</h3>
+                    <p style="color: #ccc; line-height: 1.6;">Your trusted travel partner for unforgettable journeys across India and beyond.</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--primary-orange); margin-bottom: 1rem;">Quick Links</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="packages.html" style="color: #ccc; text-decoration: none;">Packages</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="blog.html" style="color: #ccc; text-decoration: none;">Blog</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="visa.html" style="color: #ccc; text-decoration: none;">Visa Services</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="terms.html" style="color: #ccc; text-decoration: none;">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: var(--primary-orange); margin-bottom: 1rem;">Contact</h4>
+                    <p style="color: #ccc; line-height: 1.8;">
+                        Email: Info@tripholiday.in <br>
+                        Phone: 7042252130<br>
+                        
+
+
+PIN Code: 160055
+Area: IT Park, Industrial Area Phase 8B, Sector 74, Mohali -Punja
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #333; color: #888;">
+                <p>&copy; 2024 Trip Holiday. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script>
+        // Check if already logged in
+        if (isUserLoggedIn()) {
+            window.location.href = 'profile.html';
+        }
+
+        async function handleLogin(event) {
+            event.preventDefault();
+
+            const loginBtn = document.getElementById('loginBtn');
+            const errorMessage = document.getElementById('errorMessage');
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+
+            // Hide previous error
+            errorMessage.style.display = 'none';
+
+            // Validation
+            if (!email || !password) {
+                errorMessage.textContent = 'Please enter both email and password';
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            // Email format validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                errorMessage.textContent = 'Please enter a valid email address';
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            // Loading state
+            loginBtn.disabled = true;
+            loginBtn.textContent = 'Logging in...';
+
+            try {
+                const response = await fetch('http://localhost:5000/api/user/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Store token and user data
+                    localStorage.setItem('userToken', data.token);
+                    localStorage.setItem('userData', JSON.stringify(data.user));
+
+                    // Show success message
+                    showToast('Login successful! Redirecting...', 'success');
+
+                    // Redirect to intended page or home
+                    setTimeout(() => {
+                        const redirectUrl = localStorage.getItem('redirectAfterLogin') || 'index.html';
+                        localStorage.removeItem('redirectAfterLogin');
+                        window.location.href = redirectUrl;
+                    }, 1000);
+                } else {
+                    errorMessage.textContent = data.message || 'Login failed. Please try again.';
+                    errorMessage.style.display = 'block';
+                    loginBtn.disabled = false;
+                    loginBtn.textContent = 'Login';
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                errorMessage.textContent = 'Unable to connect to server. Please try again later.';
+                errorMessage.style.display = 'block';
+                loginBtn.disabled = false;
+                loginBtn.textContent = 'Login';
+            }
+        }
+    </script>
+</body>
+</html>

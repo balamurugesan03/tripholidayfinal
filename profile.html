@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Trip Holiday</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="logo.jpg" alt="Trip Holiday Logo" class="logo">
+                <span class="logo-text">TRIP HOLIDAY</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Destination</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="luxury-holiday.html">Luxury</a></li>
+                            <li><a href="india-holiday.html">India</a></li>
+                            <li><a href="pilgrimage.html">Pilgrimage</a></li>
+                            <li><a href="international-holiday.html">International</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="visa.html">Visa</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Profile</a>
+                        <ul class="dropdown-menu">
+                            <li class="auth-nav-item" id="loginNavItem">
+                                <a href="login.html" class="btn-nav-login">Login</a>
+                            </li>
+                            <li class="auth-nav-item" id="registerNavItem">
+                                <a href="register.html" class="btn-nav-register">Sign Up</a>
+                            </li>
+                            <li class="auth-nav-item hidden" id="userNavItem">
+                                <a href="profile.html" class="btn-nav-profile">
+                                    <span id="navUserName">My Account</span>
+                                </a>
+                            </li>
+                            <li class="auth-nav-item hidden" id="logoutNavItem">
+                                <a href="#" onclick="userLogout(event)" class="btn-nav-logout">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 3rem 1rem; min-height: 70vh;">
+        <div id="welcomeSection" style="margin-bottom: 3rem;">
+            <h1 style="color: var(--primary-orange); margin-bottom: 0.5rem;">Welcome back, <span id="userName">User</span>!</h1>
+            <p style="color: var(--text-gray);">You have <span id="favCount" style="color: var(--primary-orange); font-weight: 600;">0</span> favorite packages</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 3rem;">
+            <div class="card" style="padding: 2rem;">
+                <h2 style="color: var(--primary-orange); margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+                    <span>Profile Information</span>
+                    <button onclick="toggleEditMode()" id="editBtn" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Edit Profile</button>
+                </h2>
+
+                <div id="profileView">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                        <div>
+                            <label style="display: block; color: #666; font-size: 0.9rem; margin-bottom: 0.3rem;">Full Name</label>
+                            <p id="displayName" style="font-size: 1.1rem; font-weight: 500; color: #333;">-</p>
+                        </div>
+                        <div>
+                            <label style="display: block; color: #666; font-size: 0.9rem; margin-bottom: 0.3rem;">Email Address</label>
+                            <p id="displayEmail" style="font-size: 1.1rem; font-weight: 500; color: #333;">-</p>
+                        </div>
+                        <div>
+                            <label style="display: block; color: #666; font-size: 0.9rem; margin-bottom: 0.3rem;">Phone</label>
+                            <p id="displayPhone" style="font-size: 1.1rem; font-weight: 500; color: #333;">-</p>
+                        </div>
+                        <div>
+                            <label style="display: block; color: #666; font-size: 0.9rem; margin-bottom: 0.3rem;">Member Since</label>
+                            <p id="displayJoined" style="font-size: 1.1rem; font-weight: 500; color: #333;">-</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="profileEdit" style="display: none;">
+                    <form id="profileForm" onsubmit="handleUpdateProfile(event)">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+                            <div>
+                                <label for="editName" style="display: block; margin-bottom: 0.5rem; color: #333; font-weight: 500;">Full Name</label>
+                                <input type="text" id="editName" style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 6px; font-size: 1rem;">
+                            </div>
+                            <div>
+                                <label for="editPhone" style="display: block; margin-bottom: 0.5rem; color: #333; font-weight: 500;">Phone</label>
+                                <input type="tel" id="editPhone" style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 6px; font-size: 1rem;">
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 1rem;">
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                            <button type="button" onclick="cancelEdit()" class="btn btn-secondary">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 3rem;">
+            <h2 style="color: var(--primary-orange); margin-bottom: 1.5rem;">My Favorite Packages</h2>
+
+            <div id="loadingFavorites" style="text-align: center; padding: 3rem;">
+                <p style="color: var(--text-gray);">Loading your favorites...</p>
+            </div>
+
+            <div id="noFavorites" style="display: none; text-align: center; padding: 3rem; background: #f9f9f9; border-radius: 12px;">
+                <p style="font-size: 1.2rem; color: var(--text-gray); margin-bottom: 1rem;">You haven't saved any packages yet</p>
+                <a href="packages.html" class="btn btn-primary">Browse Packages</a>
+            </div>
+
+            <div id="favoritesGrid" class="grid grid-3" style="display: none; gap: 2rem;"></div>
+        </div>
+    </main>
+
+    <footer style="background: #1a1a1a; color: white; padding: 2rem 0; margin-top: 4rem;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                <div>
+                    <h3 style="color: var(--primary-orange); margin-bottom: 1rem;">Trip Holiday</h3>
+                    <p style="color: #ccc; line-height: 1.6;">Your trusted travel partner for unforgettable journeys across India and beyond.</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--primary-orange); margin-bottom: 1rem;">Quick Links</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="packages.html" style="color: #ccc; text-decoration: none;">Packages</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="blog.html" style="color: #ccc; text-decoration: none;">Blog</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="visa.html" style="color: #ccc; text-decoration: none;">Visa Services</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="terms.html" style="color: #ccc; text-decoration: none;">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: var(--primary-orange); margin-bottom: 1rem;">Contact</h4>
+                    <p style="color: #ccc; line-height: 1.8;">
+                        Email: info@tripholiday.com<br>
+                        Phone: +91 123 456 7890<br>
+                        Address: Mumbai, India
+                    </p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #333; color: #888;">
+                <p>&copy; 2024 Trip Holiday. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+    <script>
+        let userProfile = null;
+
+        // Check auth on load
+        document.addEventListener('DOMContentLoaded', async function() {
+            if (!isUserLoggedIn()) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            await loadUserProfile();
+            await loadFavorites();
+        });
+
+        async function loadUserProfile() {
+            try {
+                const response = await authenticatedFetch('http://localhost:5000/api/user/profile');
+                const data = await response.json();
+
+                if (data.success) {
+                    userProfile = data.user;
+                    displayProfile(data.user);
+                }
+            } catch (error) {
+                console.error('Error loading profile:', error);
+            }
+        }
+
+        function displayProfile(user) {
+            document.getElementById('userName').textContent = user.name;
+            document.getElementById('displayName').textContent = user.name;
+            document.getElementById('displayEmail').textContent = user.email;
+            document.getElementById('displayPhone').textContent = user.phone || 'Not provided';
+
+            const joinedDate = new Date(user.createdAt).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            document.getElementById('displayJoined').textContent = joinedDate;
+        }
+
+        async function loadFavorites() {
+            const loadingDiv = document.getElementById('loadingFavorites');
+            const noFavDiv = document.getElementById('noFavorites');
+            const gridDiv = document.getElementById('favoritesGrid');
+
+            try {
+                const response = await authenticatedFetch('http://localhost:5000/api/user/favorites');
+                const data = await response.json();
+
+                loadingDiv.style.display = 'none';
+
+                if (data.success && data.packages && data.packages.length > 0) {
+                    document.getElementById('favCount').textContent = data.packages.length;
+                    gridDiv.style.display = 'grid';
+                    gridDiv.innerHTML = data.packages.map(pkg => createPackageCard(pkg)).join('');
+                } else {
+                    document.getElementById('favCount').textContent = '0';
+                    noFavDiv.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error loading favorites:', error);
+                loadingDiv.style.display = 'none';
+                noFavDiv.style.display = 'block';
+            }
+        }
+
+        function createPackageCard(pkg) {
+            return `
+                <div class="package-card card-3d" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s;">
+                    <img src="${pkg.imageUrl || 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&h=600&fit=crop'}"
+                         alt="${pkg.title}"
+                         style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 1.5rem;">
+                        <h3 style="color: var(--primary-orange); margin-bottom: 0.5rem; font-size: 1.3rem;">${pkg.title}</h3>
+                        <p style="color: #666; margin-bottom: 1rem; font-size: 0.9rem;">${pkg.description ? pkg.description.substring(0, 100) + '...' : ''}</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span style="color: #333; font-weight: 600; font-size: 1.1rem;">₹${pkg.startingPrice ? pkg.startingPrice.toLocaleString() : 'N/A'}</span>
+                            <span style="color: #666; font-size: 0.9rem;">${pkg.duration || 'N/A'}</span>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <a href="packages.html?id=${pkg.id}" class="btn btn-primary" style="flex: 1; text-align: center; font-size: 0.9rem; padding: 0.6rem;">View Details</a>
+                            <button onclick="removeFavorite('${pkg.id}')" class="btn btn-secondary" style="padding: 0.6rem 1rem; font-size: 0.9rem;">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        async function removeFavorite(packageId) {
+            try {
+                const response = await authenticatedFetch(`http://localhost:5000/api/user/favorites/${packageId}`, {
+                    method: 'DELETE'
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showToast('Removed from favorites', 'success');
+                    // Update localStorage
+                    const user = getCurrentUser();
+                    user.favorites = data.favorites;
+                    localStorage.setItem('userData', JSON.stringify(user));
+                    // Reload favorites
+                    await loadFavorites();
+                } else {
+                    showToast('Error removing favorite', 'error');
+                }
+            } catch (error) {
+                console.error('Error removing favorite:', error);
+                showToast('Error removing favorite', 'error');
+            }
+        }
+
+        function toggleEditMode() {
+            const viewDiv = document.getElementById('profileView');
+            const editDiv = document.getElementById('profileEdit');
+            const editBtn = document.getElementById('editBtn');
+
+            viewDiv.style.display = 'none';
+            editDiv.style.display = 'block';
+            editBtn.style.display = 'none';
+
+            // Populate form
+            document.getElementById('editName').value = userProfile.name;
+            document.getElementById('editPhone').value = userProfile.phone || '';
+        }
+
+        function cancelEdit() {
+            const viewDiv = document.getElementById('profileView');
+            const editDiv = document.getElementById('profileEdit');
+            const editBtn = document.getElementById('editBtn');
+
+            viewDiv.style.display = 'block';
+            editDiv.style.display = 'none';
+            editBtn.style.display = 'inline-block';
+        }
+
+        async function handleUpdateProfile(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('editName').value.trim();
+            const phone = document.getElementById('editPhone').value.trim();
+
+            try {
+                const response = await authenticatedFetch('http://localhost:5000/api/user/profile', {
+                    method: 'PUT',
+                    body: JSON.stringify({ name, phone })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showToast('Profile updated successfully', 'success');
+                    // Update localStorage
+                    const user = getCurrentUser();
+                    user.name = name;
+                    user.phone = phone;
+                    localStorage.setItem('userData', JSON.stringify(user));
+                    // Reload profile
+                    await loadUserProfile();
+                    cancelEdit();
+                    updateNavigation();
+                } else {
+                    showToast(data.message || 'Error updating profile', 'error');
+                }
+            } catch (error) {
+                console.error('Error updating profile:', error);
+                showToast('Error updating profile', 'error');
+            }
+        }
+    </script>
+</body>
+</html>

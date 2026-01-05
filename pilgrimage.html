@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilgrimage Tours | Trip Holiday</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="logo.jpg" alt="Trip Holiday Logo" class="logo">
+                <span class="logo-text">TRIP HOLIDAY</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Destination</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="luxury-holiday.html">Luxury</a></li>
+                            <li><a href="india-holiday.html">India</a></li>
+                            <li><a href="pilgrimage.html">Pilgrimage</a></li>
+                            <li><a href="international-holiday.html">International</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="visa.html">Visa</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Profile</a>
+                        <ul class="dropdown-menu">
+                            <li class="auth-nav-item" id="loginNavItem">
+                                <a href="login.html" class="btn-nav-login">Login</a>
+                            </li>
+                            <li class="auth-nav-item" id="registerNavItem">
+                                <a href="register.html" class="btn-nav-register">Sign Up</a>
+                            </li>
+                            <li class="auth-nav-item hidden" id="userNavItem">
+                                <a href="profile.html" class="btn-nav-profile">
+                                    <span id="navUserName">My Account</span>
+                                </a>
+                            </li>
+                            <li class="auth-nav-item hidden" id="logoutNavItem">
+                                <a href="#" onclick="userLogout(event)" class="btn-nav-logout">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" style="padding: 6rem 2rem;">
+            <div class="hero-content">
+                <div style="font-size: 4rem; margin-bottom: 1rem;">🕌</div>
+                <h1>Spiritual Pilgrimage Tours</h1>
+                <p>Sacred journeys to India's most revered spiritual destinations</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <section style="margin: 3rem 0;">
+                <h2 class="section-title">Sacred Destinations</h2>
+                <div class="grid grid-3" style="margin-top: 2rem;">
+                    <div class="package-card">
+                        <div style="background: linear-gradient(135deg, #9C27B0, #7B1FA2); height: 180px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: bold; text-align: center; padding: 1rem;">Char Dham Yatra</div>
+                        <div class="package-content">
+                            <span class="package-badge">Most Sacred</span>
+                            <h3 class="package-title">Char Dham Yatra</h3>
+                            <p style="color: var(--text-gray);">Badrinath, Kedarnath, Gangotri, Yamunotri</p>
+                            <div class="package-price">$620</div>
+                            <div style="color: var(--text-gray); margin: 0.5rem 0;">⏱️ 10 Days / 9 Nights</div>
+                            <a href="booking-without-flight.html" class="btn btn-primary" style="width: 100%; margin-top: 1rem; text-align: center;">Book Now</a>
+                        </div>
+                    </div>
+
+                    <div class="package-card">
+                        <div style="background: linear-gradient(135deg, #FF9800, #F57C00); height: 180px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: bold; text-align: center; padding: 1rem;">Varanasi</div>
+                        <div class="package-content">
+                            <span class="package-badge">Spiritual Capital</span>
+                            <h3 class="package-title">Varanasi - Kashi</h3>
+                            <p style="color: var(--text-gray);">Ganga Aarti, temples, spiritual experiences</p>
+                            <div class="package-price">$280</div>
+                            <div style="color: var(--text-gray); margin: 0.5rem 0;">⏱️ 4 Days / 3 Nights</div>
+                            <a href="booking-without-flight.html" class="btn btn-primary" style="width: 100%; margin-top: 1rem; text-align: center;">Book Now</a>
+                        </div>
+                    </div>
+
+                    <div class="package-card">
+                        <div style="background: linear-gradient(135deg, #F44336, #D32F2F); height: 180px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: bold; text-align: center; padding: 1rem;">Golden Temple</div>
+                        <div class="package-content">
+                            <span class="package-badge">Sikh Heritage</span>
+                            <h3 class="package-title">Amritsar Darshan</h3>
+                            <p style="color: var(--text-gray);">Golden Temple, Wagah Border, Jallianwala Bagh</p>
+                            <div class="package-price">$240</div>
+                            <div style="color: var(--text-gray); margin: 0.5rem 0;">⏱️ 3 Days / 2 Nights</div>
+                            <a href="booking-without-flight.html" class="btn btn-primary" style="width: 100%; margin-top: 1rem; text-align: center;">Book Now</a>
+                        </div>
+                    </div>
+
+                    <div class="package-card">
+                        <div style="background: linear-gradient(135deg, #3F51B5, #303F9F); height: 180px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: bold; text-align: center; padding: 1rem;">Tirupati</div>
+                        <div class="package-content">
+                            <span class="package-badge">Lord Venkateswara</span>
+                            <h3 class="package-title">Tirupati Balaji</h3>
+                            <p style="color: var(--text-gray);">Tirumala temple, VIP darshan arrangements</p>
+                            <div class="package-price">$180</div>
+                            <div style="color: var(--text-gray); margin: 0.5rem 0;">⏱️ 2 Days / 1 Night</div>
+                            <a href="booking-without-flight.html" class="btn btn-primary" style="width: 100%; margin-top: 1rem; text-align: center;">Book Now</a>
+                        </div>
+                    </div>
+
+                    <div class="package-card">
+                        <div style="background: linear-gradient(135deg, #009688, #00796B); height: 180px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: bold; text-align: center; padding: 1rem;">Shirdi</div>
+                        <div class="package-content">
+                            <span class="package-badge">Sai Baba</span>
+                            <h3 class="package-title">Shirdi Sai Darshan</h3>
+                            <p style="color: var(--text-gray);">Sai Baba temple, Shani Shingnapur, Nashik</p>
+                            <div class="package-price">$220</div>
+                            <div style="color: var(--text-gray); margin: 0.5rem 0;">⏱️ 3 Days / 2 Nights</div>
+                            <a href="booking-without-flight.html" class="btn btn-primary" style="width: 100%; margin-top: 1rem; text-align: center;">Book Now</a>
+                        </div>
+                    </div>
+
+                    <div class="package-card">
+                        <div style="background: linear-gradient(135deg, #673AB7, #512DA8); height: 180px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: bold; text-align: center; padding: 1rem;">Haridwar-Rishikesh</div>
+                        <div class="package-content">
+                            <span class="package-badge">Yoga Capital</span>
+                            <h3 class="package-title">Haridwar & Rishikesh</h3>
+                            <p style="color: var(--text-gray);">Ganga Aarti, ashrams, yoga & meditation</p>
+                            <div class="package-price">$260</div>
+                            <div style="color: var(--text-gray); margin: 0.5rem 0;">⏱️ 4 Days / 3 Nights</div>
+                            <a href="booking-without-flight.html" class="btn btn-primary" style="width: 100%; margin-top: 1rem; text-align: center;">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section style="margin: 4rem 0;">
+                <h2 class="section-title">Pilgrimage Tours by Religion</h2>
+                <div class="grid grid-2" style="margin-top: 2rem; gap: 2rem;">
+                    <div class="card">
+                        <h3 style="color: var(--primary-orange); margin-bottom: 1rem;">🕉️ Hindu Pilgrimage</h3>
+                        <ul style="line-height: 2; color: var(--text-gray);">
+                            <li>Char Dham - Uttarakhand (4 sacred sites)</li>
+                            <li>12 Jyotirlinga - Across India</li>
+                            <li>Varanasi - Oldest living city</li>
+                            <li>Tirupati - Lord Venkateswara</li>
+                            <li>Puri - Jagannath Temple</li>
+                            <li>Dwarka - Krishna's kingdom</li>
+                            <li>Mathura Vrindavan - Krishna's birthplace</li>
+                            <li>Ayodhya - Ram Janmabhoomi</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3 style="color: var(--primary-orange); margin-bottom: 1rem;">☪️ Multi-Faith Sacred Sites</h3>
+                        <ul style="line-height: 2; color: var(--text-gray);">
+                            <li>Golden Temple, Amritsar (Sikh)</li>
+                            <li>Ajmer Sharif (Islamic)</li>
+                            <li>Bodh Gaya (Buddhist)</li>
+                            <li>Sarnath (Buddhist)</li>
+                            <li>Palitana (Jain)</li>
+                            <li>Velankanni (Christian)</li>
+                            <li>Old Goa Churches (Christian)</li>
+                            <li>Dharamshala - Dalai Lama (Buddhist)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section style="margin: 4rem 0; padding: 3rem; background: linear-gradient(135deg, #fff5ec, #ffe8d6); border-radius: 20px;">
+                <h2 class="section-title" style="text-align: center;">What's Included in Pilgrimage Packages</h2>
+                <div class="grid grid-3" style="margin-top: 2rem;">
+                    <div class="card">
+                        <div style="font-size: 2.5rem; color: var(--primary-orange); margin-bottom: 1rem; text-align: center;">🏨</div>
+                        <h3 style="text-align: center; margin-bottom: 0.5rem;">Comfortable Stay</h3>
+                        <p style="color: var(--text-gray); text-align: center;">Clean hotels near temples with vegetarian meals</p>
+                    </div>
+                    <div class="card">
+                        <div style="font-size: 2.5rem; color: var(--primary-orange); margin-bottom: 1rem; text-align: center;">🚐</div>
+                        <h3 style="text-align: center; margin-bottom: 0.5rem;">Transportation</h3>
+                        <p style="color: var(--text-gray); text-align: center;">AC vehicles for all transfers and sightseeing</p>
+                    </div>
+                    <div class="card">
+                        <div style="font-size: 2.5rem; color: var(--primary-orange); margin-bottom: 1rem; text-align: center;">🙏</div>
+                        <h3 style="text-align: center; margin-bottom: 0.5rem;">Darshan Arrangements</h3>
+                        <p style="color: var(--text-gray); text-align: center;">VIP/Special darshan whenever possible</p>
+                    </div>
+                    <div class="card">
+                        <div style="font-size: 2.5rem; color: var(--primary-orange); margin-bottom: 1rem; text-align: center;">👨‍🏫</div>
+                        <h3 style="text-align: center; margin-bottom: 0.5rem;">Expert Guides</h3>
+                        <p style="color: var(--text-gray); text-align: center;">Knowledgeable guides sharing religious significance</p>
+                    </div>
+                    <div class="card">
+                        <div style="font-size: 2.5rem; color: var(--primary-orange); margin-bottom: 1rem; text-align: center;">🍽️</div>
+                        <h3 style="text-align: center; margin-bottom: 0.5rem;">Satvik Meals</h3>
+                        <p style="color: var(--text-gray); text-align: center;">Pure vegetarian/Jain food options available</p>
+                    </div>
+                    <div class="card">
+                        <div style="font-size: 2.5rem; color: var(--primary-orange); margin-bottom: 1rem; text-align: center;">📿</div>
+                        <h3 style="text-align: center; margin-bottom: 0.5rem;">Puja Services</h3>
+                        <p style="color: var(--text-gray); text-align: center;">Assistance for special prayers and rituals</p>
+                    </div>
+                </div>
+            </section>
+
+            <section style="margin: 4rem 0;">
+                <h2 class="section-title">Important Guidelines</h2>
+                <div class="grid grid-2" style="margin-top: 2rem; gap: 2rem;">
+                    <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-orange); margin-bottom: 1rem;">Before You Travel</h3>
+                        <ul style="line-height: 2; color: var(--text-gray);">
+                            <li>Check temple timings and special days</li>
+                            <li>Dress modestly (traditional attire recommended)</li>
+                            <li>Carry valid ID proofs</li>
+                            <li>Book in advance during festival seasons</li>
+                            <li>Check weather conditions for mountain temples</li>
+                        </ul>
+                    </div>
+                    <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-orange); margin-bottom: 1rem;">During Your Visit</h3>
+                        <ul style="line-height: 2; color: var(--text-gray);">
+                            <li>Respect temple rules and customs</li>
+                            <li>Photography may be restricted in some temples</li>
+                            <li>Follow queue discipline during darshan</li>
+                            <li>Avoid leather items in certain temples</li>
+                            <li>Keep sacred places clean</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section style="margin: 4rem 0; text-align: center; padding: 3rem; background: linear-gradient(135deg, rgba(255, 127, 39, 0.1), rgba(255, 127, 39, 0.05)); border-radius: 20px;">
+                <h2 class="section-title" style="display: block; text-align: center;">Special Pilgrimage Services</h2>
+                <div class="grid grid-3" style="margin-top: 2rem;">
+                    <div>
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🎫</div>
+                        <h3 style="color: var(--primary-orange); margin-bottom: 0.5rem;">VIP Darshan</h3>
+                        <p style="color: var(--text-gray);">Priority darshan bookings for select temples</p>
+                    </div>
+                    <div>
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🛕</div>
+                        <h3 style="color: var(--primary-orange); margin-bottom: 0.5rem;">Custom Yatra</h3>
+                        <p style="color: var(--text-gray);">Personalized pilgrimage tours as per your wish</p>
+                    </div>
+                    <div>
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">👴</div>
+                        <h3 style="color: var(--primary-orange); margin-bottom: 0.5rem;">Senior Citizen Care</h3>
+                        <p style="color: var(--text-gray);">Special assistance for elderly pilgrims</p>
+                    </div>
+                </div>
+            </section>
+
+            <section style="margin: 4rem 0; text-align: center;">
+                <h2 class="section-title" style="display: block; text-align: center;">Begin Your Spiritual Journey</h2>
+                <p style="font-size: 1.2rem; color: var(--text-gray); margin: 2rem 0;">Let us help you plan a meaningful pilgrimage experience</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="packages.html?destination=pilgrimage" class="btn btn-primary">View All Pilgrimage Tours</a>
+                    <a href="booking-without-flight.html" class="btn btn-secondary">Book Now</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Trip Holiday</h3>
+                <p>Your trusted travel partner for creating unforgettable memories.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="packages.html">All Packages</a></li>
+                    <li><a href="blog.html">Travel Blog</a></li>
+                    <li><a href="visa.html">Visa Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Policies</h3>
+                <ul>
+                    <li><a href="cancellation-policy.html">Cancellation Policy</a></li>
+                    <li><a href="date-change-policy.html">Date Change Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: Info@tripholiday.in</p>
+                <p>Phone: 7042252130</p>
+                <p>Address: IT Park, Industrial Area Phase 8B, Sector 74, Mohali - Punjab</p>
+                <p>PIN Code: 160055</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Trip Holiday. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Holidays | Trip Holiday</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="logo.jpg" alt="Trip Holiday Logo" class="logo">
+                <span class="logo-text">TRIP HOLIDAY</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Destination</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="luxury-holiday.html">Luxury</a></li>
+                            <li><a href="india-holiday.html">India</a></li>
+                            <li><a href="pilgrimage.html">Pilgrimage</a></li>
+                            <li><a href="international-holiday.html">International</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="visa.html">Visa</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Profile</a>
+                        <ul class="dropdown-menu">
+                            <li class="auth-nav-item" id="loginNavItem">
+                                <a href="login.html" class="btn-nav-login">Login</a>
+                            </li>
+                            <li class="auth-nav-item" id="registerNavItem">
+                                <a href="register.html" class="btn-nav-register">Sign Up</a>
+                            </li>
+                            <li class="auth-nav-item hidden" id="userNavItem">
+                                <a href="profile.html" class="btn-nav-profile">
+                                    <span id="navUserName">My Account</span>
+                                </a>
+                            </li>
+                            <li class="auth-nav-item hidden" id="logoutNavItem">
+                                <a href="#" onclick="userLogout(event)" class="btn-nav-logout">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section with Unsplash Background -->
+        <section class="hero" style="position: relative; overflow: hidden; padding: 6rem 2rem;">
+            <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1920&h=800&fit=crop" alt="Luxury Travel" class="hero-bg" style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+            <div class="hero-content">
+                <div class="fade-in floating" style="font-size: 4rem; margin-bottom: 1rem;">👑</div>
+                <h1 class="fade-in gradient-text">Luxury Holidays</h1>
+                <p class="fade-in typing-text" data-text="Experience the pinnacle of travel with our exclusive luxury packages">Experience the pinnacle of travel with our exclusive luxury packages</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <section style="margin: 3rem 0;">
+                <h2 class="section-title">What Makes Our Luxury Packages Special</h2>
+                <div class="grid grid-3" style="margin-top: 2rem;">
+                    <div class="card fade-in zoom-in card-3d">
+                        <div style="font-size: 3rem; color: var(--primary-orange); margin-bottom: 1rem;">⭐</div>
+                        <h3 style="margin-bottom: 0.5rem;">5-Star Accommodations</h3>
+                        <p style="color: var(--text-gray);">Stay in world-class hotels and resorts with impeccable service</p>
+                    </div>
+                    <div class="card fade-in zoom-in card-3d" style="animation-delay: 0.1s;">
+                        <div style="font-size: 3rem; color: var(--primary-orange); margin-bottom: 1rem;">🚗</div>
+                        <h3 style="margin-bottom: 0.5rem;">Private Transfers</h3>
+                        <p style="color: var(--text-gray);">Luxury vehicles with professional chauffeurs at your service</p>
+                    </div>
+                    <div class="card fade-in zoom-in card-3d" style="animation-delay: 0.2s;">
+                        <div style="font-size: 3rem; color: var(--primary-orange); margin-bottom: 1rem;">🍽️</div>
+                        <h3 style="margin-bottom: 0.5rem;">Gourmet Dining</h3>
+                        <p style="color: var(--text-gray);">Fine dining experiences at exclusive restaurants</p>
+                    </div>
+                    <div class="card fade-in zoom-in card-3d" style="animation-delay: 0.3s;">
+                        <div style="font-size: 3rem; color: var(--primary-orange); margin-bottom: 1rem;">🎯</div>
+                        <h3 style="margin-bottom: 0.5rem;">Personal Guide</h3>
+                        <p style="color: var(--text-gray);">Dedicated tour guides for personalized experiences</p>
+                    </div>
+                    <div class="card fade-in zoom-in card-3d" style="animation-delay: 0.4s;">
+                        <div style="font-size: 3rem; color: var(--primary-orange); margin-bottom: 1rem;">💎</div>
+                        <h3 style="margin-bottom: 0.5rem;">VIP Access</h3>
+                        <p style="color: var(--text-gray);">Priority entry to attractions and exclusive experiences</p>
+                    </div>
+                    <div class="card fade-in zoom-in card-3d" style="animation-delay: 0.5s;">
+                        <div style="font-size: 3rem; color: var(--primary-orange); margin-bottom: 1rem;">🎁</div>
+                        <h3 style="margin-bottom: 0.5rem;">Premium Amenities</h3>
+                        <p style="color: var(--text-gray);">Spa treatments, welcome gifts, and special services</p>
+                    </div>
+                </div>
+            </section>
+
+            <section style="margin: 4rem 0;">
+                <h2 class="section-title">Featured Luxury Destinations</h2>
+                <div class="grid grid-2" style="margin-top: 2rem;">
+                    <div class="package-card fade-in zoom-in">
+                        <div style="overflow: hidden; height: 250px; position: relative;">
+                            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&h=600&fit=crop" alt="Dubai Luxury" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;">
+                        </div>
+                        <div class="package-content">
+                            <h3 class="package-title">Dubai Luxury Experience</h3>
+                            <p style="color: var(--text-gray); margin: 1rem 0;">7-star Burj Al Arab, private desert safari, yacht cruise, and Michelin-star dining</p>
+                            <ul class="package-features">
+                                <li>Burj Al Arab or Atlantis The Palm</li>
+                                <li>Private helicopter tour</li>
+                                <li>VIP shopping experience</li>
+                                <li>Desert safari in luxury 4x4</li>
+                            </ul>
+                            <div class="package-price counter" data-target="230000" style="margin-top: 1rem;">₹2,30,000</div>
+                            <a href="booking-with-flight.html" class="btn btn-primary glow" style="width: 100%; text-align: center; margin-top: 1rem;">Book Now</a>
+                        </div>
+                    </div>
+
+                    <div class="package-card fade-in zoom-in" style="animation-delay: 0.1s;">
+                        <div style="overflow: hidden; height: 250px; position: relative;">
+                            <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop" alt="Maldives Luxury" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;">
+                        </div>
+                        <div class="package-content">
+                            <h3 class="package-title">Maldives Ultra Luxury</h3>
+                            <p style="color: var(--text-gray); margin: 1rem 0;">Overwater villas, private island resort, underwater dining, seaplane transfers</p>
+                            <ul class="package-features">
+                                <li>Overwater villa with pool</li>
+                                <li>Private butler service</li>
+                                <li>Underwater restaurant experience</li>
+                                <li>Spa & wellness treatments</li>
+                            </ul>
+                            <div class="package-price counter" data-target="290000" style="margin-top: 1rem;">₹2,90,000</div>
+                            <a href="booking-with-flight.html" class="btn btn-primary glow" style="width: 100%; text-align: center; margin-top: 1rem;">Book Now</a>
+                        </div>
+                    </div>
+
+                    <div class="package-card fade-in zoom-in" style="animation-delay: 0.2s;">
+                        <div style="overflow: hidden; height: 250px; position: relative;">
+                            <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?w=800&h=600&fit=crop" alt="Switzerland Luxury" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;">
+                        </div>
+                        <div class="package-content">
+                            <h3 class="package-title">Swiss Alps Luxury Retreat</h3>
+                            <p style="color: var(--text-gray); margin: 1rem 0;">Premium ski resorts, scenic train journeys, luxury chalets, and alpine experiences</p>
+                            <ul class="package-features">
+                                <li>5-star mountain resort</li>
+                                <li>Glacier Express journey</li>
+                                <li>Private ski instructor</li>
+                                <li>Helicopter mountain tour</li>
+                            </ul>
+                            <div class="package-price counter" data-target="345000" style="margin-top: 1rem;">₹3,45,000</div>
+                            <a href="booking-with-flight.html" class="btn btn-primary glow" style="width: 100%; text-align: center; margin-top: 1rem;">Book Now</a>
+                        </div>
+                    </div>
+
+                    <div class="package-card fade-in zoom-in" style="animation-delay: 0.3s;">
+                        <div style="overflow: hidden; height: 250px; position: relative;">
+                            <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?w=800&h=600&fit=crop" alt="Rajasthan Luxury" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;">
+                        </div>
+                        <div class="package-content">
+                            <h3 class="package-title">Royal Rajasthan Heritage</h3>
+                            <p style="color: var(--text-gray); margin: 1rem 0;">Palace hotels, private vintage car tours, royal dining experiences, heritage properties</p>
+                            <ul class="package-features">
+                                <li>Taj Lake Palace & Oberoi Udaivilas</li>
+                                <li>Private palace tours</li>
+                                <li>Royal dining at heritage hotels</li>
+                                <li>Luxury desert camp experience</li>
+                            </ul>
+                            <div class="package-price counter" data-target="180000" style="margin-top: 1rem;">₹1,80,000</div>
+                            <a href="booking-without-flight.html" class="btn btn-primary glow" style="width: 100%; text-align: center; margin-top: 1rem;">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="fade-in zoom-in" style="margin: 4rem 0; padding: 3rem; background: linear-gradient(135deg, #fff5ec, #ffe8d6); border-radius: 20px;">
+                <h2 class="section-title gradient-text" style="text-align: center;">Luxury Package Inclusions</h2>
+                <div class="grid grid-2" style="margin-top: 2rem;">
+                    <div class="slide-in-left" style="padding: 1.5rem;">
+                        <h3 style="color: var(--primary-orange); margin-bottom: 1rem;">Accommodation</h3>
+                        <ul style="line-height: 2; color: var(--text-gray);">
+                            <li>5-star or 7-star hotels & resorts</li>
+                            <li>Suites with premium amenities</li>
+                            <li>Exclusive resort access</li>
+                            <li>Late check-out privileges</li>
+                        </ul>
+                    </div>
+                    <div class="slide-in-right" style="padding: 1.5rem;">
+                        <h3 style="color: var(--primary-orange); margin-bottom: 1rem;">Transportation</h3>
+                        <ul style="line-height: 2; color: var(--text-gray);">
+                            <li>Business/First class flights</li>
+                            <li>Private luxury vehicles</li>
+                            <li>Airport VIP lounge access</li>
+                            <li>Priority boarding & baggage</li>
+                        </ul>
+                    </div>
+                    <div class="slide-in-left" style="padding: 1.5rem; animation-delay: 0.1s;">
+                        <h3 style="color: var(--primary-orange); margin-bottom: 1rem;">Experiences</h3>
+                        <ul style="line-height: 2; color: var(--text-gray);">
+                            <li>Private guided tours</li>
+                            <li>VIP access to attractions</li>
+                            <li>Exclusive cultural experiences</li>
+                            <li>Adventure activities premium</li>
+                        </ul>
+                    </div>
+                    <div class="slide-in-right" style="padding: 1.5rem; animation-delay: 0.1s;">
+                        <h3 style="color: var(--primary-orange); margin-bottom: 1rem;">Services</h3>
+                        <ul style="line-height: 2; color: var(--text-gray);">
+                            <li>24/7 concierge service</li>
+                            <li>Personal travel coordinator</li>
+                            <li>Premium travel insurance</li>
+                            <li>Complimentary spa & wellness</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="fade-in zoom-in" style="margin: 4rem 0; text-align: center;">
+                <h2 class="section-title gradient-text" style="display: block; text-align: center;">Ready for Your Luxury Escape?</h2>
+                <p class="typing-text" data-text="Let us create an unforgettable luxury experience tailored to your dreams" style="font-size: 1.2rem; color: var(--text-gray); margin: 2rem 0;">Let us create an unforgettable luxury experience tailored to your dreams</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="packages.html?type=luxury" class="btn btn-primary pulse">View All Luxury Packages</a>
+                    <a href="booking-with-flight.html" class="btn btn-secondary glow">Start Booking</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Trip Holiday</h3>
+                <p>Your trusted travel partner for creating unforgettable memories.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="packages.html">All Packages</a></li>
+                    <li><a href="blog.html">Travel Blog</a></li>
+                    <li><a href="visa.html">Visa Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Policies</h3>
+                <ul>
+                    <li><a href="cancellation-policy.html">Cancellation Policy</a></li>
+                    <li><a href="date-change-policy.html">Date Change Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: Info@tripholiday.in</p>
+                <p>Phone: 7042252130</p>
+                <p>Address: IT Park, Industrial Area Phase 8B, Sector 74, Mohali - Punjab</p>
+                <p>PIN Code: 160055</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Trip Holiday. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
